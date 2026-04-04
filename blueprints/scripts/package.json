@@ -1,0 +1,19 @@
+{
+  "name": "konductor-housekeeping",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Konductor Framework housekeeping loop for repository maintenance",
+  "main": "housekeeping.ts",
+  "scripts": {
+    "start": "tsx housekeeping.ts",
+    "upgrade": "tsx upgrade-konductor.ts",
+    "typecheck": "tsc --noEmit",
+    "lint:md": "markdownlint-cli2 \"../../**/*.md\" \"#../../node_modules\" \"#../../**/node_modules\""
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "markdownlint-cli2": "^0.22.0",
+    "tsx": "^4.19.1",
+    "typescript": "^6.0.2"
+  }
+}

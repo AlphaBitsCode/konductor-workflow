@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install blueprint dependencies
+        working-directory: .konductor/scripts
+        run: npm install
+
+      - name: Typecheck blueprint scripts
+        working-directory: .konductor/scripts
+        run: npm run typecheck
+
+      - name: Lint Markdown files
+        working-directory: .konductor/scripts
+        run: npm run lint:md
+
+      - name: Run shellcheck
+        run: shellcheck scripts/bootstrap.sh
+
+      - name: Smoke test bootstrap
+        run: |
+          # Start a local simple HTTP server to serve the repo contents
+          python3 -m http.server 8080 &
+          SERVER_PID=$!
+          sleep 2 # Wait for server to start
+
+          # Run the bootstrap script against the local server
+          TARGET_DIR="/tmp/test-install" RAW_BASE="http://localhost:8080" ./scripts/bootstrap.sh
+
+          # Verify framework files are installed
+          test -f /tmp/test-install/AGENTS.md
+          test -f /tmp/test-install/.konductor/VISION_OBJECTIVES.md
+          test -f /tmp/test-install/.konductor/HANDOFF.md
+          test -f /tmp/test-install/.konductor/HYPERAGENT_WORKFLOW.md
+          test -f /tmp/test-install/.konductor/AGENT_MEMORY.md
+          test -f /tmp/test-install/.konductor/AGENT_HISTORY.md
+          test -f /tmp/test-install/.konductor/KONDUCTOR_VERSION.json
+          test -f /tmp/test-install/.konductor/decisions/ADR_TEMPLATE.md
+          test -f /tmp/test-install/.konductor/scripts/housekeeping.ts
+          test -f /tmp/test-install/.konductor/scripts/upgrade.ts
+          test -f /tmp/test-install/.konductor/scripts/package.json
+
+          # Kill the server
+          kill $SERVER_PID
