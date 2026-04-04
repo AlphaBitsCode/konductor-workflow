@@ -1,0 +1,96 @@
+name: 🧪 CI/CD Pipeline 🚀
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: 🧪 Run Full Test Suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧑🏻💻 Human Instructions
+        run: echo "Remember to take breaks, stay hydrated, and enjoy building cool things! 🚀"
+
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: 'npm'
+          cache-dependency-path: blueprints/scripts/package-lock.json
+
+      - name: 📦 Install blueprint dependencies
+        working-directory: blueprints/scripts
+        run: |
+          npm ci
+
+      - name: 🔍 Typecheck blueprint scripts
+        working-directory: blueprints/scripts
+        run: npm run typecheck
+
+      - name: 🧹 Lint Markdown files
+        working-directory: blueprints/scripts
+        run: npm run lint:md
+
+      - name: 🧪 Run Tests and generate coverage badge
+        working-directory: blueprints/scripts
+        run: npm run test:coverage
+
+      - name: 📛 Commit Coverage Badge
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          # The badge is already inside blueprints/scripts/coverage
+          git add -f blueprints/scripts/coverage/badge.svg
+          git commit -m "chore: update coverage badge" || echo "No changes to commit"
+          # We only push if it's the main branch and we successfully committed.
+          if [ "$GITHUB_REF" = "refs/heads/main" ]; then
+            git push || echo "Push failed"
+          fi
+
+      - name: 🛡️ Run shellcheck
+        run: shellcheck blueprints/scripts/meet-konductor.sh
+
+      - name: 🔥 Smoke test bootstrap
+        run: |
+          # Run the installer script
+          TARGET_DIR="/tmp/test-install" ./blueprints/scripts/meet-konductor.sh
+
+          # Verify framework files are installed
+          test -f /tmp/test-install/AGENTS.md
+          test -f /tmp/test-install/KONDUCTOR.md
+          test -f /tmp/test-install/.konductor/memory/KONDUCTOR_VISION_ROADMAP.md
+          test -f /tmp/test-install/.konductor/KONDUCTOR_HANDOFF.md
+          test -f /tmp/test-install/.konductor/KONDUCTOR_WORKFLOW.md
+          test -f /tmp/test-install/.konductor/memory/KONDUCTOR_MEMORY.md
+          test -f /tmp/test-install/.konductor/memory/KONDUCTOR_HISTORY.md
+          test -f /tmp/test-install/.konductor/KONDUCTOR_VERSION.json
+          test -f /tmp/test-install/.konductor/memory/decisions/ADR_TEMPLATE.md
+          test -f /tmp/test-install/.konductor/scripts/housekeeping.ts
+          test -f /tmp/test-install/.konductor/scripts/upgrade-konductor.ts
+          test -f /tmp/test-install/.konductor/scripts/package.json
+
+  publish:
+    name: 📤 Publish to NPM 📦
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node for Publishing
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: 🚀 Publish to NPM Registry
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

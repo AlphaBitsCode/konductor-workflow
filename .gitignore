@@ -1,0 +1,6 @@
+.DS_Store
+.konductor/
+node_modules/
+.env
+.npmrc
+coverage/

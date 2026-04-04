@@ -1,0 +1,27 @@
+{
+  "name": "the-konductor",
+  "version": "0.1.7",
+  "description": "Konductor Framework Installer and CLI",
+  "bin": {
+    "the-konductor": "blueprints/scripts/meet-konductor.sh",
+    "konductor": "blueprints/scripts/meet-konductor.sh"
+  },
+  "files": [
+    "blueprints",
+    "blueprints/scripts/meet-konductor.sh",
+    "VERSION",
+    "KONDUCTOR.md"
+  ],
+  "engines": {
+    "node": ">=22.11.0"
+  },
+  "scripts": {
+    "publish-from-npm": "npm publish"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "mermaid": "^11.14.0"
+  }
+}
