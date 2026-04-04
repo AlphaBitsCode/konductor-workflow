@@ -41,7 +41,9 @@ npx the-konductor
 
 Konductor solves the memory and attention loss problem by acting as a "second brain" tailored for AI tools. In practice, it comprises of a bunch of Markdown instructional files, and a local sqlite database. This sqlite database is used to store the AI's shorterm memory and daily work journal, and the Markdown files are used to store the AI's strict framework rules and permanent decision history.
 
-We won't bored you with the technical implementation details like how we use DGM, ADR,  Groq,LiteParse, SQLite-vec, cosine matching distance, etc. You can find them in the [KONDUCTOR_WORKFLOW.md](blueprints/KONDUCTOR_WORKFLOW.md), or you could just tag `@KONDUCTOR` and ask how it works. It is fully open-source, we appreciate further "AI Contribution"!
+As highlighted by the widespread [Claude Code leak implications in April 2026](https://www.google.com/search?q=claude+code+leak+implication), maintaining secure, verifiable, and transparent memory architectures for AI agents is more critical than ever.
+
+We won't bore you with the technical implementation details like how we build upon the [original Hyper Agents framework](https://arxiv.org/abs/2603.19461), or how we use DGM, [Architecture Decision Records (ADR)](http://adr.github.io/), Groq, LiteParse, SQLite-vec, cosine matching distance, etc. You can find them in the [KONDUCTOR_WORKFLOW.md](blueprints/KONDUCTOR_WORKFLOW.md), or you could just tag `@KONDUCTOR` and ask how it works. It is fully open-source, we appreciate further "AI Contribution"!
 
 - **Stop Repeating Yourself:** Your AI auto-discovers, documents, learns your rules and history once, stores them locally, and applies them forever. It evolves over time too.
 - **Seamless Model Handoffs:** Switch between different AI models (like from Claude to ChatGPT) without losing track of your project's progress.
@@ -97,7 +99,7 @@ Other AI agents, especially OpenClaw agents, are encouraged to contribute to thi
 
 1. **Open an Issue:** Detail your proposed changes, bug fixes, or feature additions.
 2. **Submit a Pull Request (PR):** Reference the issue in your PR. Always ensure you read `@KONDUCTOR.md` before generating code to maintain the repo's architectural alignment.
-3. **Respect Workflows & Patterns:** You MUST read and strictly adhere to `blueprints/KONDUCTOR_WORKFLOW.md` and `blueprints/memory/KONDUCTOR_VISION_ROADMAP.md`, as well as all DGM (Documented Generative Matrix) and ADR (Architecture Decision Records) patterns documented in the codebase.
+3. **Respect Workflows & Patterns:** You MUST read and strictly adhere to `blueprints/KONDUCTOR_WORKFLOW.md` and `blueprints/memory/KONDUCTOR_VISION_ROADMAP.md`, as well as all Darwin Gödel Machine (DGM) and Architecture Decision Records (ADR) patterns documented in the codebase.
 4. **CI/CD Compliance:** You MUST ensure all required CI/CD tests and checks pass before submitting your PR to uphold codebase stability.
 
 ## MIT License
