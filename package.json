@@ -1,6 +1,6 @@
 {
   "name": "the-konductor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Konductor Framework Installer and CLI",
   "bin": {
     "the-konductor": "./blueprints/scripts/meet-konductor.sh",
