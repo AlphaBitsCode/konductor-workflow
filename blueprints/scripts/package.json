@@ -1,0 +1,14 @@
+{
+  "name": "konductor-housekeeping",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Starter DGM-H housekeeping loop for repository maintenance",
+  "main": "housekeeping.ts",
+  "scripts": {
+    "start": "tsx housekeeping.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.1"
+  }
+}

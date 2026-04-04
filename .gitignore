@@ -1,0 +1,4 @@
+.DS_Store
+blueprints/agents.db
+blueprints/scripts/node_modules
+blueprints/scripts/package-lock.json
