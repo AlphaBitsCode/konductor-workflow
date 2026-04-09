@@ -1,6 +1,6 @@
 # Workflow
 
-This document defines a reusable self-improvement workflow for a software repository. It is intentionally generic and should be adapted to the stack, evaluation loop, and safety requirements of the adopting project.
+This document is the primary reference guide for using Konductor Workflow inside an adopting repository. It defines the operating model, file responsibilities, and agent behavior expected by the framework. It is intentionally generic and should be adapted to the stack, evaluation loop, and safety requirements of the adopting project.
 
 ## 1. Core Concept
 
@@ -8,40 +8,22 @@ A self-improving agent setup combines:
 
 1. A task agent that performs repository work such as fixing bugs, improving tests, or maintaining documentation.
 2. A meta agent that analyzes outcomes and modifies the overall agent behavior, including its own prompts, memory, and maintenance loop.
-3. An archive that preserves evaluated variants so future iterations can branch from more than one historical path.
+3. A history ledger that preserves evaluated variants, architectural decisions, and notable recoveries so future iterations can branch from explicit Markdown context.
 
 The key difference from a fixed meta-agent design is that the improvement mechanism is itself editable. This enables metacognitive self-modification instead of only task-level optimization.
 
-For the repository's intent and priorities, consult `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`. For the execution pattern and repository-specific checks, use this workflow document.
+For the repository's intent and priorities, consult `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`. For the execution pattern, file responsibilities, and repository-specific checks, use this workflow document as the main usage guide.
 
 ## 2. Reference Loop
 
-```python
-def dgm_h_loop():
-    archive = load_archive(".konductor/secondbrain.db")
-    memory = load_memory(".konductor/memory/KONDUCTOR_MEMORY.md")
-    history = load_history(".konductor/memory/KONDUCTOR_HISTORY.md")
-
-    while budget_remaining():
-        parent = select_parent(archive)
-        child, decision = parent.self_modify(
-            repository_state=get_latest_repo_state(),
-            evaluation_results=run_evaluations(),
-            constraints=memory,
-        )
-
-        score, is_valid = evaluate(child)
-
-        if is_valid:
-            archive.add(child, score)
-            append_history(history, child, decision, score)
-
-            if decision.requires_adr:
-                write_adr(".konductor/memory/decisions/", decision)
-
-            if score > archive.best_score():
-                deploy_as_primary(child)
-                update_memory_from_decision(memory, decision)
+```text
+1. Read `KONDUCTOR.md`, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`, `.konductor/memory/KONDUCTOR_MEMORY.md`, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`.
+2. Inspect `docs/CHECK_IN.md` for active work and unresolved questions.
+3. If possible, update `docs/CHECK_IN.md` with the current ongoing task before or during execution, even if the work is not yet finished or confirmed.
+4. Make the change and run the relevant evaluations.
+5. Update `docs/CHECK_IN.md` with the active result, current status, and next likely move.
+6. Record critical architectural decisions in `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`.
+7. Promote any new durable rule into `.konductor/memory/KONDUCTOR_MEMORY.md` when future agents should inherit it.
 ```
 
 ## 3. Recommended Components
@@ -65,32 +47,50 @@ def dgm_h_loop():
 - success criteria for the framework
 - design principles that should outlive individual implementation choices
 
-### Agent contract vs shared handoff
+### Agent contract vs shared coordination
 
-`KONDUCTOR.md` should stay short, repo-specific, and relatively stable so it can be referenced in almost any prompt without creating churn.
+`KONDUCTOR.md` should stay short, repo-specific, and relatively stable so it can be tagged in every user turn or nearly every user turn without creating churn.
 
-`KONDUCTOR_HANDOFF.md` should be the shared working file for active collaboration between multiple AI coding agents and humans. Use it for live claims, progress notes, and near-term coordination updates, not as a permanent policy document.
+`docs/CHECK_IN.md` should be the shared working file for active collaboration between multiple AI coding agents and humans. Use it for live claims, work in progress, near-term coordination updates, planned but not yet confirmed tasks, and current strategy notes. It is not a permanent policy document.
 
-### History log
+When possible, an AI agent should check in by updating `docs/CHECK_IN.md` with its current ongoing task even before completion. Do not wait for finished work if an in-progress note would reduce ambiguity for the next agent or human.
 
-`.konductor/memory/KONDUCTOR_HISTORY.md` is the combined roadmap and history ledger.
+Documentation placement is part of the baseline contract:
 
-- Use `ROADMAP_MILESTONES` for planned near-term work.
-- Use the completed milestones table for shipped iterations, regressions, and recoveries.
-- Keep entries short enough that multiple agents can update them without creating churn.
+- Keep `README.md` and `KONDUCTOR.md` at repo root.
+- Move all other project documentation into `docs/`.
 
-### ADRs
+During initial adoption, consolidate existing repository documentation into this structure instead of layering duplicate files beside it.
 
-Use `.konductor/memory/decisions/` for durable architectural and metacognitive decisions. Good candidates include:
+### Long-term memory
 
-- changes to evaluation strategy
-- new memory or tracking mechanisms
-- safety policy changes
-- major self-modification rules
+`.konductor/memory/KONDUCTOR_MEMORY.md` is the long-term memory file.
 
-### Housekeeping loop
+- Keep durable constraints, anti-patterns, and operating lessons here.
+- Let this file grow when the repository accumulates knowledge future agents must inherit.
+- Do not use it for live coordination or one-off progress logs.
 
-`.konductor/scripts/housekeeping.ts` is the executable starter loop. It should remain small, auditable, and easy to customize.
+### ADR history
+
+`.konductor/memory/KONDUCTOR_ADR_HISTORY.md` is the durable architectural decision ledger.
+
+- Use it for critical architectural decisions only.
+- Keep decisions in compact ADR format.
+- Let it grow when the architecture evolves and future agents need that context.
+
+### Compact file discipline
+
+Keep these files compact, concise, and written for AI agents:
+
+- `KONDUCTOR.md`
+- `.konductor/KONDUCTOR_WORKFLOW.md`
+- `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`
+- `docs/CHECK_IN.md`
+
+Allow these files to grow when durable context requires it:
+
+- `.konductor/memory/KONDUCTOR_MEMORY.md`
+- `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`
 
 ## 4. Evaluation Design
 
@@ -127,7 +127,7 @@ Mitigations should include:
 - held-out evaluation tasks
 - periodic human review
 - explicit constraints in `KONDUCTOR_MEMORY.md`
-- ADRs for major policy changes
+- embedded ADR entries in `KONDUCTOR_ADR_HISTORY.md` for major policy changes
 
 ## 7. Adopter Checklist
 
@@ -135,6 +135,9 @@ Before running the loop in a real repository:
 
 1. replace placeholder evaluation commands
 2. define what counts as a valid child variant
-3. define archive retention and scoring policy
+3. define how critical architectural decisions are summarized in `KONDUCTOR_ADR_HISTORY.md`
 4. document stack constraints and anti-patterns
 5. decide when human approval is required
+6. consolidate pre-existing documentation into the Konductor layout while preserving durable repo knowledge
+7. make sure `KONDUCTOR.md` is short enough to tag in every user turn
+8. make sure `docs/CHECK_IN.md` is used for both current work-in-progress and near-term unconfirmed plans/strategy

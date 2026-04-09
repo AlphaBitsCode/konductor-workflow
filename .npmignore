@@ -1,5 +1,41 @@
+# Environment and secrets
 .env
+.npmrc
+
+# OS noise
 .DS_Store
+
+# Dependencies
 node_modules/
+blueprints/scripts/node_modules/
+
+# Test files
+blueprints/scripts/*.test.ts
+blueprints/scripts/vitest.config.ts
+
+# TypeScript source (dev-only scripts, not shipped)
+blueprints/scripts/*.ts
+blueprints/scripts/tsconfig.json
+
+# Scripts' own package manifests (not needed by consumers)
+blueprints/scripts/package.json
+blueprints/scripts/package-lock.json
+
+# Coverage reports
 coverage/
+blueprints/scripts/coverage/
+
+# Build/lint config
+blueprints/scripts/.markdownlint-cli2.jsonc
+
+# Internal .konductor state inside scripts dir
+blueprints/scripts/.konductor/
+
+# Empty placeholder dirs
+blueprints/memory/short-term/
+
+# Old local tarballs
+*.tgz
+
+# Git
 .gitignore

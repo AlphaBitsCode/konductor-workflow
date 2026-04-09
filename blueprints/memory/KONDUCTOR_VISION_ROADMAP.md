@@ -20,19 +20,21 @@ The framework is doing its job when:
 - adopters can identify the installed framework version quickly
 - agents can tell what is stable policy versus live work in progress
 - upgrades preserve repo-specific customizations by default
-- the housekeeping loop is easy to inspect, run, and replace
+- the workflow remains easy to inspect and customize without extra runtime tooling
 
 ## Design Principles
 
 - Keep `KONDUCTOR.md` short enough to tag in almost any prompt.
-- Treat `KONDUCTOR_HANDOFF.md` as the shared live working file for active agents.
+- Treat `docs/CHECK_IN.md` as the shared live working file for active agents.
+- Keep only `README.md` and `KONDUCTOR.md` at repo root; move all other project documentation under `docs/`.
 - Keep the workflow blueprint focused on HOW, not WHY.
 - Use explicit version metadata and changelogs for upgrade clarity.
+- Keep the baseline Markdown-only and easy to carry across repositories.
 - Prefer additive, reviewable changes over opaque rewrites.
 
 ## Non-Goals
 
 - This file does not describe the execution loop in detail.
 - This file does not define repository-specific checks.
-- This file does not replace ADRs for major architectural decisions.
+- This file does not replace embedded ADR decisions recorded in `KONDUCTOR_ADR_HISTORY.md`.
 - This file does not grow into a work log or history stream.

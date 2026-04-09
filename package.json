@@ -1,16 +1,23 @@
 {
   "name": "the-konductor",
-  "version": "0.1.7",
-  "description": "Konductor Framework Installer and CLI",
+  "version": "0.1.9",
+  "description": "Konductor Workflow Installer and CLI",
   "bin": {
     "the-konductor": "blueprints/scripts/meet-konductor.sh",
     "konductor": "blueprints/scripts/meet-konductor.sh"
   },
   "files": [
-    "blueprints",
-    "blueprints/scripts/meet-konductor.sh",
     "VERSION",
-    "KONDUCTOR.md"
+    "KONDUCTOR.md",
+    "blueprints/AGENTS.md",
+    "blueprints/KONDUCTOR.md",
+    "blueprints/KONDUCTOR_VERSION.json",
+    "blueprints/KONDUCTOR_WORKFLOW.md",
+    "blueprints/docs/CHECK_IN.md",
+    "blueprints/memory/KONDUCTOR_ADR_HISTORY.md",
+    "blueprints/memory/KONDUCTOR_MEMORY.md",
+    "blueprints/memory/KONDUCTOR_VISION_ROADMAP.md",
+    "blueprints/scripts/meet-konductor.sh"
   ],
   "engines": {
     "node": ">=22.11.0"

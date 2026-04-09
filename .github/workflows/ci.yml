@@ -65,15 +65,11 @@ jobs:
           test -f /tmp/test-install/AGENTS.md
           test -f /tmp/test-install/KONDUCTOR.md
           test -f /tmp/test-install/.konductor/memory/KONDUCTOR_VISION_ROADMAP.md
-          test -f /tmp/test-install/.konductor/KONDUCTOR_HANDOFF.md
+          test -f /tmp/test-install/docs/CHECK_IN.md
           test -f /tmp/test-install/.konductor/KONDUCTOR_WORKFLOW.md
           test -f /tmp/test-install/.konductor/memory/KONDUCTOR_MEMORY.md
-          test -f /tmp/test-install/.konductor/memory/KONDUCTOR_HISTORY.md
+          test -f /tmp/test-install/.konductor/memory/KONDUCTOR_ADR_HISTORY.md
           test -f /tmp/test-install/.konductor/KONDUCTOR_VERSION.json
-          test -f /tmp/test-install/.konductor/memory/decisions/ADR_TEMPLATE.md
-          test -f /tmp/test-install/.konductor/scripts/housekeeping.ts
-          test -f /tmp/test-install/.konductor/scripts/upgrade-konductor.ts
-          test -f /tmp/test-install/.konductor/scripts/package.json
 
   publish:
     name: 📤 Publish to NPM 📦

@@ -1,11 +1,10 @@
 {
-  "name": "konductor-housekeeping",
+  "name": "konductor-maintenance",
   "version": "1.0.0",
   "private": true,
-  "description": "Konductor Framework housekeeping loop for repository maintenance",
-  "main": "housekeeping.ts",
+  "description": "Konductor Workflow maintenance helpers for bootstrap and upgrades",
+  "main": "upgrade-konductor.ts",
   "scripts": {
-    "start": "tsx housekeeping.ts",
     "upgrade": "tsx upgrade-konductor.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

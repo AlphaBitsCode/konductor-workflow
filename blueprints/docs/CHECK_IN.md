@@ -1,0 +1,30 @@
+# Check-In
+
+This file is the short-term memory scratchpad for active collaboration between AI coding agents and humans in an adopting repository. It is not a permanent policy document.
+
+- Use this for live claims, progress notes, work in progress, near-term coordination, and planned but not yet confirmed tasks or strategy.
+- Keep it compact, current, and up to the hour when active work is underway.
+- Do not grow this into a history log.
+- Do not store long-term rules here. Put them in `.konductor/memory/KONDUCTOR_MEMORY.md`.
+- Do not store durable architectural decisions here. Record them as embedded ADR entries in `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`.
+- When possible, update this file with the current ongoing task even if the task is still in progress or blocked.
+- Keep enough current context here to support self-retrospection and the next upgrade or recovery step.
+- Archive or clear stale entries when they are no longer relevant to active work.
+
+## Active Claims
+
+| Owner | Task | Started | Status |
+| :--- | :--- | :--- | :--- |
+| — | — | — | — |
+
+## Recent Progress
+
+- _No recent updates._
+
+## Open Questions
+
+- _No open questions._
+
+## Planned / Unconfirmed
+
+- _No planned items._

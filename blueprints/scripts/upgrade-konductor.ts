@@ -67,12 +67,12 @@ export async function main() {
   console.log('- KONDUCTOR.md');
   console.log('- AGENTS.md (compatibility shim only)');
   console.log('- .konductor/memory/KONDUCTOR_VISION_ROADMAP.md');
-  console.log('- .konductor/KONDUCTOR_HANDOFF.md');
+  console.log('- docs/CHECK_IN.md');
   console.log('- .konductor/memory/KONDUCTOR_MEMORY.md');
-  console.log('- .konductor/memory/KONDUCTOR_HISTORY.md');
+  console.log('- .konductor/memory/KONDUCTOR_ADR_HISTORY.md');
   console.log('- .konductor/KONDUCTOR_VERSION.json');
   console.log('- .konductor/KONDUCTOR_WORKFLOW.md');
-  console.log('- .konductor/scripts/housekeeping.ts');
+  console.log('- .konductor/memory/KONDUCTOR_ADR_HISTORY.md');
 }
 
 /* v8 ignore start */
