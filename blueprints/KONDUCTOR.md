@@ -26,5 +26,6 @@
     <rule priority="8">Use the workflow as a self-improvement loop: capture friction, refine process, and leave clearer upgrade guidance than you started with.</rule>
     <rule priority="9">During adoption, consolidate existing project documentation into the Konductor structure without discarding durable repo knowledge.</rule>
     <rule priority="10">`KONDUCTOR.md` must stay short enough to be tagged on every user turn when working in the repository.</rule>
+    <rule priority="11">In all GitHub Actions workflow files, set `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true` in the top-level `env:` block to suppress Node.js version deprecation warnings from third-party actions.</rule>
   </rules>
 </konductor_contract>

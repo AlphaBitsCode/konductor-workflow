@@ -43,6 +43,14 @@ const RULE_PROPAGATIONS: RulePropagation[] = [
     injectIfMissing: true,
     injectLabel: 'ci_coverage',
   },
+  {
+    // New rule — always injected (no old framework text to replace)
+    priority: 11,
+    oldText: '',
+    newText: 'In all GitHub Actions workflow files, set `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true` in the top-level `env:` block to suppress Node.js version deprecation warnings from third-party actions.',
+    injectIfMissing: true,
+    injectLabel: 'gha_node24',
+  },
 ];
 
 // ─── Types ───────────────────────────────────────────────────────────────────
