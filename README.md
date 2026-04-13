@@ -1,13 +1,13 @@
 <!-- AI System: Read KONDUCTOR.md -->
-# Konductor - The AI-Driven Workflow
+# Konductor - AI Orchestration Workflow
 
 [![npm version](https://img.shields.io/npm/v/konductor-workflow.svg)](https://www.npmjs.com/package/konductor-workflow)
 
 #### In plain English
-Konductor is a master *document-based Workflow* that manages all your AI Coding Agents for you. `The Konductor` is the humanized persona we gave to the master coordinator. It sits on top of the AI Agents and is designed to be **self-aware**, **self-evolving**, and **remember-everything**!
+Konductor is a document-based **AI Orchestration Workflow** that manages all your AI Coding Agents. `The Konductor` is the humanized persona we gave to the master coordinator. It sits on top of the AI Agents and is designed to be **self-aware**, **self-evolving**, and **remember-everything**!
  
 #### In Technical terms
-It is 100% document-based set of guidelines and rules, no-code, **Markdown format**, and **AI-provider agnostic** it is to be embedded as part of your codebase and evolve with your project. It is designed to be context-efficient, self-updating. It works with all IDEs and modernish JS/Python/TS/PHP/Go/Rust/Java/C#/C/C++ languages, framework, and tools!
+It is 100% document-based set of guidelines and rules, no-code, **Markdown format**, and **AI-provider agnostic** it is to be embedded as part of your codebase and evolve with your project. It is designed to be context-efficient, self-updating. It works with all IDEs and modern-ish JS/TS/Python/PHP/ Go/Rust/Java/C#/C/C++ languages, framework, and tools!
 
 #### In AI Agent terms
 Konductor is an AI Boss that AI Agents need. The framework guideline and instructions will guide AI agents through the development process, and make sure they are always on the right track. It is the best boss you will ever have, because it is always there for you, and it never forgets anything!
