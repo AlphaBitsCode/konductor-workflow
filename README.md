@@ -13,6 +13,10 @@ Whenever you work with AI coding assistants (like Claude, ChatGPT, Cursor, or An
 Install the latest Konductor Workflow in this repository with `npx the-konductor@latest`. Then read `KONDUCTOR.md` and consolidate the existing project documentation into the standard structure: keep only `README.md` and `KONDUCTOR.md` at repo root, move the rest into `docs/`, create or align `docs/CHECK_IN.md`, `.konductor/KONDUCTOR_WORKFLOW.md`, `.konductor/memory/KONDUCTOR_MEMORY.md`, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`, `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`, and preserve durable repo-specific knowledge while compacting the agent-facing files.
 ```
 
+> **🔥 CRITICAL USAGE BEHAVIOR**  
+> Simply installing the framework is not enough. You must actively anchor the AI.  
+> **Tag `@KONDUCTOR.md` at the start of every session, at every new turn request, and after a long or distracting response.** This acts as a forced memory reload, ensuring the AI strictly adheres to your architectural choices instead of hallucinating standalone logic.
+
 ## Documentation Layout
 
 - Keep `README.md` and `KONDUCTOR.md` at the repository root.
@@ -86,28 +90,9 @@ We won't bury the workflow in extra tooling. The current baseline is plain Markd
 
 ## Framework Blueprint
 
-```mermaid
-flowchart TD
-    User(["You (Vision)"]) -->|Roadmap| Core["Konductor AI"]
-    Core -->|Rules| AI["AI Assistants"]
-    
-    subgraph Repo [Monorepo]
-        direction TD
-        subgraph Vault [Second Brain - Memory Vault]
-            direction TD
-            Memory[(".md files")]
-            History[("KONDUCTOR_ADR_HISTORY.md")]
-        end
-        ProjectA["Web/Admin repo"]
-        ProjectB["Mobile/API/Infra repo"]
-        
-        Vault ~~~ ProjectA ~~~ ProjectB
-    end
-
-    Core -. Orchestrator .-> Repo
-    AI -->|Codes & Feedback| Repo
-    Repo --> AI
-```
+<p align="center">
+  <img src="blueprints/docs/framework-blueprint.svg" alt="Konductor Framework Architecture Blueprint" width="100%">
+</p>
 
 ## Contributing
 
