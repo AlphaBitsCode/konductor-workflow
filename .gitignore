@@ -5,3 +5,7 @@ node_modules/
 .npmrc
 coverage/
 *.tgz
+
+# Local Konductor resources
+docs/
+KONDUCTOR.md

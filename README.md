@@ -3,17 +3,17 @@
 
 [![npm version](https://img.shields.io/npm/v/the-konductor.svg)](https://www.npmjs.com/package/the-konductor)
 
-##### In plain English
+#### In plain English
 Konductor is a master *document-based Workflow* that manages all your AI Coding Agents for you. `The Konductor` is the humanized persona we gave to the master coordinator. It sits on top of the AI Agents and is designed to be **self-aware**, **self-evolving**, and **remember-everything**!
  
-##### In Technical terms
+#### In Technical terms
 It is 100% document-based set of guidelines and rules, no-code, **document-based (Markdown)**, and **AI-provider agnostic** it is to be embedded as part of your codebase and evolve with your project. It is designed to be context-efficient, self-updating. It works with all IDEs and modernish JS/Python/TS/PHP/Go/Rust/Java/C#/C/C++ languages, framework, and tools!
 
-##### In AI Agent terms
+#### In AI Agent terms
 Konductor is an AI Boss that AI Agents need. The framework guideline and instructions will guide AI agents through the development process, and make sure they are always on the right track. It is the best boss you will ever have, because it is always there for you, and it never forgets anything!
 
 <p align="center">
-  <img src="blueprints/docs/framework-blueprint.svg" alt="Konductor Framework Architecture Blueprint" width="100%">
+  <img src="https://raw.githubusercontent.com/AlphaBitsCode/konductor-workflow/main/blueprints/docs/framework-blueprint.svg" alt="Konductor Framework Architecture Blueprint" width="100%">
 </p>
 
 ## Installation & Setup
