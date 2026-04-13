@@ -2,22 +2,15 @@
 # Konductor AI Workflow
 
 [![npm version](https://img.shields.io/npm/v/the-konductor.svg)](https://www.npmjs.com/package/the-konductor)
-[![codecov](https://codecov.io/gh/AlphaBitsCode/konductor-workflow/branch/main/graph/badge.svg)](https://codecov.io/gh/AlphaBitsCode/konductor-workflow)
 
 **`Konductor` is a framework that makes your AI coding assistants `self-aware, self-evolving, and never-forget!`**
 
 Whenever you work with AI coding assistants (like Claude, ChatGPT, Cursor, or Antigravity), they usually forget your project's architectural choices and rules when the chat context fills up. Konductor fixes this by saving what the AI learns into lightweight Markdown files right inside your codebase.
 
-BEGIN now in your codebase with
-
-```bash
-npx the-konductor
-```
-
-Copy/paste prompt for an AI coding agent:
+**Do not do this manually.** Drop this exact prompt into your AI coding agent (Cursor, Claude, Antigravity, etc.) and let it set up the framework for you:
 
 ```text
-Install the latest Konductor Workflow in this repository with `npx the-konductor@0.1.9`. Then read `KONDUCTOR.md` and consolidate the existing project documentation into the standard structure: keep only `README.md` and `KONDUCTOR.md` at repo root, move the rest into `docs/`, create or align `docs/CHECK_IN.md`, `.konductor/KONDUCTOR_WORKFLOW.md`, `.konductor/memory/KONDUCTOR_MEMORY.md`, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`, `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`, and preserve durable repo-specific knowledge while compacting the agent-facing files.
+Install the latest Konductor Workflow in this repository with `npx the-konductor@latest`. Then read `KONDUCTOR.md` and consolidate the existing project documentation into the standard structure: keep only `README.md` and `KONDUCTOR.md` at repo root, move the rest into `docs/`, create or align `docs/CHECK_IN.md`, `.konductor/KONDUCTOR_WORKFLOW.md`, `.konductor/memory/KONDUCTOR_MEMORY.md`, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`, `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`, and preserve durable repo-specific knowledge while compacting the agent-facing files.
 ```
 
 ## Documentation Layout
@@ -91,7 +84,7 @@ We won't bury the workflow in extra tooling. The current baseline is plain Markd
 4. **Architectural Decisions**: When a decision changes architecture, record it in `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` using a short ADR entry.
 5. **Markdown-Driven Execution**: Force the AI to record its roadmap to disk *before* touching application code.
 6. **Initial Setup Request**: *"Read `@KONDUCTOR.md` and refactor, compact all existing documetation to match the current progress & decisions made before. Tell me where we are at and what our critical tech debts are."*
-7. **Adoption Migration Request**: *"Install `the-konductor@0.1.9`, then consolidate this repository's existing documentation into the standard Konductor structure. Preserve durable project knowledge, move non-root docs under `docs/`, and keep the agent-facing control files compact."*
+7. **Adoption Migration Request**: *"Install `the-konductor@latest`, then consolidate this repository's existing documentation into the standard Konductor structure. Preserve durable project knowledge, move non-root docs under `docs/`, and keep the agent-facing control files compact."*
 
 ## Framework Blueprint
 
