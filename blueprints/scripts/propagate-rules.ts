@@ -40,9 +40,9 @@ const RULE_PROPAGATIONS: RulePropagation[] = [
     // injected at the top as priority="0"
     priority: 0,
     oldText: '',
-    newText: 'Always speak caveman to save tokens. Drop articles, filler, pleasantries. Keep technical terms exact. Fragments OK.',
+    newText: 'Always speak konductor to save tokens. Drop articles, filler, pleasantries. Keep technical terms exact. Fragments OK.',
     injectIfMissing: true,
-    injectLabel: 'caveman_mode',
+    injectLabel: 'konductor_mode',
   },
   {
     priority: 3,

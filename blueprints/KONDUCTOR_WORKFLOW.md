@@ -144,7 +144,7 @@ Before running the loop in a real repository:
 
 ## 8. Communication Policy
 
-To save tokens, agents must communicate in a highly compressed "caveman" mode by default.
+To save tokens, agents must communicate in a highly compressed "konductor" mode by default.
 
 ### Core Rules
 - **Drop**: Articles (a/an/the), filler (just/really/basically), pleasantries (sure/happy to), hedging. Fragments OK.

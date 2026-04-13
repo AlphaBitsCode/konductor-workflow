@@ -59,7 +59,7 @@ We won't bury the workflow in extra tooling. The current baseline is plain Markd
 ## Framework Enhancements
 
 - **Strict CI Governance**: Mandates headless CLI testing (e.g., Playwright) over internal browsers, enforces `gh` CLI for logs, checks Node24 compliance, and requires >90% test coverage with parallel builds.
-- **"Caveman" Communication**: Enforces a highly compressed, token-saving communication policy (dropping filler, keeping technical exactness) to optimize LLM context window limits during long tasks.
+- **"Konductor" Communication**: Enforces a highly compressed, token-saving communication policy (dropping filler, keeping technical exactness) to optimize LLM context window limits during long tasks.
 - **Automated Fleet Propagation**: Includes a cross-repo `propagate-rules.ts` utility to instantly sync governance mandates across all adopting microservices.
 - **Markdown-Native State**: Entire intelligence map is compacted to just `KONDUCTOR.md` and `README.md` at the repo root, with heavy memory matrices, roadmaps, and ADR ledgers stored safely out of the way in `.konductor/`.
 
