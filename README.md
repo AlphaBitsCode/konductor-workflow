@@ -40,26 +40,27 @@ Copy paste this into your favourite IDE workspace (Claude, Antigravity, Cursor, 
 
 ```markdown
 Begin review this codebase and update/compact all project docs
-to match progress, must follow strict Konductor workflow @KONDUCTOR.md```
+to match progress, must follow strict Konductor workflow @KONDUCTOR.md
+```
 
 Let it run for a few minutes with your Best thinking model for best accuracy. This will align your project documentation with the Konductor workflow framework, and set up the AI agents to work with the framework. After this, the Konductor persona will be embedded in your project, and you can use it to manage your AI agents.
 
 #### Example workflows
 
-A typical workfing session workflow
+A typical working session workflow
 
-```
+```text
 Human : Where are we? What should we do next? @KONDUCTOR.md
-Coding Agents: [...]
+Coding Agents: ...
 Human : Ok do #1,2,3 for me
-Coding Agents: [...]
+Coding Agents: ...
 Human : Check-in your work and deploy @KONDUCTOR.md
-Coding Agents: [...]
+Coding Agents: ...
 ```
 
 One-command production critical issue fixing
 
-```
+```text
 Human : Investigate and fix this error below, and deploy and monitor until done @KONDUCTOR.md [...paste error messages...]
 Coding Agents: Investigate -> Fix -> Update Test -> Test -> Check-in -> Commit -> Deploy -> Monitor -> Auto-Fix if needed.
 ```
@@ -73,7 +74,7 @@ Coding Agents: Investigate -> Fix -> Update Test -> Test -> Check-in -> Commit -
 3. **Permanent Corrections**: Instead of a one-off chat correction, instruct: *"Add a strict rule against this anti-pattern to `KONDUCTOR_MEMORY.md` so you never repeat this error."*
 4. **Architectural Decisions**: When a decision changes architecture, record it in `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` using a short ADR entry.
 5. **Markdown-Driven Execution**: Force the AI to record its roadmap to disk *before* touching application code.
-6. **Initial Setup Request**: *"Read `@KONDUCTOR.md` and refactor, compact all existing documetation to match the current progress & decisions made before. Tell me where we are at and what our critical tech debts are."*
+6. **Initial Setup Request**: *"Read `@KONDUCTOR.md` and refactor, compact all existing documentation to match the current progress & decisions made before. Tell me where we are at and what our critical tech debts are."*
 7. **Adoption Migration Request**: *"Install `konductor-workflow@latest`, then consolidate this repository's existing documentation into the standard Konductor structure. Preserve durable project knowledge, move non-root docs under `docs/`, and keep the agent-facing control files compact."*
 
 ## Compatible AI Editors & IDEs
@@ -127,7 +128,7 @@ By deploying our new token-reduction techniques, we force the AI to write and re
       </blockquote>
     </td>
     <td width="50%" style="border: none; vertical-align: top; padding: 10px;">
-      <b>✅ Konductor "Caveman" Pattern</b><br><br>
+      <b>✅ "Konductor mode" Pattern</b><br><br>
       <i>Highly efficient context loading.</i><br><br>
       <blockquote>
         - UI: Next.js + React<br>
@@ -143,7 +144,7 @@ By deploying our new token-reduction techniques, we force the AI to write and re
 We have all gone through the questionable 'vibe-coding' experience with AI coding assistants, where they usually forget your project's architectural choices and rules when the chat context fills up. In addition to that, the broken sessions, quota overages, and the AI's tendency to hallucinate or generate suboptimal code due to context loss are common pain points.
 
 Konductor workflow fixes this by saving what the AI learns into lightweight, highly compressed Markdown files right inside your codebase. No external dependencies.
-The workflow does not devidate from the normal SDLC, it actually enforces a stricter, but auto-evolving modern 'agile development' process. D.R.Y and K.I.S.S are the essential principles.
+The workflow does not deviate from the normal SDLC, it actually enforces a stricter, but auto-evolving modern 'agile development' process. D.R.Y and K.I.S.S are the essential principles.
 
 Konductor came first as a common set of steps and guidelines and hard rules that we follow internally across different IDEs (2020-2026) while adapting to fast-evolving AI frameworks.
 Later on we standardize it across our dozen of large ERP projects, legacy and greenfield, and it evolved by learning and update itself from other libraries and AI coding agent building techniques.
