@@ -63,6 +63,15 @@ We won't bury the workflow in extra tooling. The current baseline is plain Markd
 - **Seamless Model Handoffs:** Switch between different AI models (like from Claude to ChatGPT) without losing track of your project's progress.
 - **100% Local & Offline:** No cloud subscriptions. Your AI's memory is plain Markdown stored safely inside your Git repository.
 
+## Recent Changelog
+
+| Version | Highlights |
+| ------- | ---------- |
+| **0.1.14** | Enforced headless CLI testing (Playwright) over internal browsers; forced `gh` CLI for CI logs; Node24 Action requirement enforced. |
+| **0.1.12** | Introduced **"Caveman" Communication Policy & Token Compression**. Agents now write tightly compressed logs (dropping filler, keeping technical exactness) to optimize context length limits. |
+| **0.1.10** | Enforced CI fast-and-lean mandate (>90% coverage, caching, parallel builds). Introduced cross-repo `propagate-rules.ts` utility. |
+| **0.1.9** | Major structural realignment. Compacted root repo to just `KONDUCTOR.md` and `README.md`. Moved memory, roadmap, and ADR ledgers safely into `.konductor/`. |
+
 ## Example Setup & Cheatsheet
 
 ### 1. CLI Commands
