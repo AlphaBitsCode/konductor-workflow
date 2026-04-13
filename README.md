@@ -18,7 +18,15 @@ Konductor is an AI Boss that AI Agents need. The framework guideline and instruc
 
 ## Installation & Setup
 
-#### Install the Konductor persona
+#### Let AI Agent do it
+
+```markdown
+Install this package npx the-konductor@latest
+then begin review this codebase and update/compact all project docs
+to match progress, must follow strict Konductor workflow
+```
+
+#### (Manual) Install the Konductor persona
 
 ```bash
 npx the-konductor@latest
@@ -26,14 +34,13 @@ npx the-konductor@latest
 
 *(Note: If you installed locally via `npm i the-konductor`, you should run `npx the-konductor` from your repository root to execute the persona initialization.)*
 
-####  First setup step in your IDE/Coding Agent
+#### (Manual) First step in your IDE/Coding Agent
 
 Copy paste this into your favourite IDE workspace (Claude, Antigravity, Cursor, etc.) to begin using the workflow framework:
 
-```
-Begin review and update/compact all project documentations
-follow strict Konductor workflow @KONDUCTOR.md
-```
+```markdown
+Begin review this codebase and update/compact all project docs
+to match progress, must follow strict Konductor workflow @KONDUCTOR.md```
 
 Let it run for a few minutes with your Best thinking model for best accuracy. This will align your project documentation with the Konductor workflow framework, and set up the AI agents to work with the framework. After this, the Konductor persona will be embedded in your project, and you can use it to manage your AI agents.
 
