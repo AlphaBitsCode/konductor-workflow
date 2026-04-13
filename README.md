@@ -1,22 +1,55 @@
 <!-- AI System: Read KONDUCTOR.md -->
-# Konductor AI Workflow
+# Konductor - The AI-Driven Workflow
 
 [![npm version](https://img.shields.io/npm/v/the-konductor.svg)](https://www.npmjs.com/package/the-konductor)
 
-**`Konductor` is a framework that makes your AI coding assistants `self-aware, self-evolving, and never-forget!`**  
-It is **100% document-based**, **local-first (Markdown)**, and **AI-provider agnostic**—meaning it works flawlessly whether you prefer Copilot, Cursor, Anthropic Claude, OpenAI, or direct terminal agents.
+##### In plain English
+Konductor is a master *document-based Workflow* that manages all your AI Coding Agents for you. `The Konductor` is the humanized persona we gave to the master coordinator. It sits on top of the AI Agents and is designed to be **self-aware**, **self-evolving**, and **remember-everything**!
+ 
+##### In Technical terms
+It is 100% document-based set of guidelines and rules, no-code, **document-based (Markdown)**, and **AI-provider agnostic** it is to be embedded as part of your codebase and evolve with your project. It is designed by AI for AI Coding Agents to manage your project, and make them **self-aware, self-evolving, and never-forget!**. It is designed to be context-efficient, self-updating. It works with all IDEs and modernish JS/Python/TS/PHP/Go/Rust/Java/C#/C/C++ languages, framework, and tools!
 
-Whenever you work with AI coding assistants (like Claude, ChatGPT, Cursor, or Antigravity), they usually forget your project's architectural choices and rules when the chat context fills up. Konductor fixes this by saving what the AI learns into lightweight Markdown files right inside your codebase.
+##### In AI Agent terms
+Konductor is an AI Boss that AI Agents need. The framework guideline and instructions will guide AI agents through the development process, and make sure they are always on the right track. It is the best boss you will ever have, because it is always there for you, and it never forgets anything!
 
-**Do not do this manually.** Drop this exact prompt into your AI coding agent (Cursor, Claude, Antigravity, etc.) and let it set up the framework for you:
+<p align="center">
+  <img src="blueprints/docs/framework-blueprint.svg" alt="Konductor Framework Architecture Blueprint" width="100%">
+</p>
+
+## Installation & Setup
+
+These are meant for **AI coding agent** (Cursor, Claude, Antigravity, etc.) to set up the framework for you:
 
 ```text
 Install the latest Konductor Workflow in this repository with `npx the-konductor@latest`. Then read `KONDUCTOR.md` and consolidate the existing project documentation into the standard structure: keep only `README.md` and `KONDUCTOR.md` at repo root, move the rest into `docs/`, create or align `docs/CHECK_IN.md`, `.konductor/KONDUCTOR_WORKFLOW.md`, `.konductor/memory/KONDUCTOR_MEMORY.md`, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`, `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`, and preserve durable repo-specific knowledge while compacting the agent-facing files.
 ```
 
-> **🔥 CRITICAL USAGE BEHAVIOR**  
-> Simply installing the framework is not enough. You must actively anchor the AI.  
-> **Tag `@KONDUCTOR.md` at the start of every session, at every new turn request, and after a long or distracting response.** This acts as a forced memory reload, ensuring the AI strictly adheres to your architectural choices instead of hallucinating standalone logic.
+## Typical Workflow
+
+A typical workfing session workflow
+
+```
+Human : Where are we? What should we do next? @KONDUCTOR.md
+Coding Agents: [...]
+Human : Ok do #1,2,3 for me
+Coding Agents: [...]
+Human : Check-in your work and deploy @KONDUCTOR.md
+Coding Agents: [...]
+```
+
+One-command production critical issue fixing
+
+```
+Human : Investigate and fix this error below, and deploy and monitor until done @KONDUCTOR.md [...paste error messages...]
+Coding Agents: Investigate -> Fix -> Update Test -> Test -> Check-in -> Commit -> Deploy -> Monitor -> Auto-Fix if needed.
+```
+
+💡 Tag `@KONDUCTOR.md` at the start of every session, at and/or every new turn request, and/or after a long or distracting response. This acts as a forced memory reload, ensuring the AI strictly adheres to your architectural choices instead of hallucinating standalone logic. The file context is short and toke-efficient, it will save your token usage, not adding more noise to the context.
+
+## Compatible AI Editors & IDEs
+
+Konductor has been extensively tested with and is fully compatible (now and in the future) with all major AI coding platforms, including:  
+**Antigravity**, **Codex CLI**, **Codex UI**, **WindSurf**, **VS Code**, **Open Code**, **Claude Code**, **Cursor**, **Trae**, **Warp.dev**, **Kilo Code**, and **Roo Code**.
 
 ## Documentation Layout
 
@@ -49,9 +82,46 @@ Install the latest Konductor Workflow in this repository with `npx the-konductor
   </tr>
 </table>
 
+### Token Usage & Context Optimization (Post v0.1.13)
+
+By deploying our new token-reduction techniques, we force the AI to write and read documentation using stripped-out filler text. This greatly reduces prompt bloat and keeps the AI's attention entirely on the technical requirements.
+
+<table style="border-collapse: collapse; border: none;">
+  <tr style="border: none;">
+    <td width="50%" style="border: none; vertical-align: top; padding: 10px;">
+      <b>❌ Traditional AI Output (Bloated)</b><br><br>
+      <i>High token usage and prone to context overflow.</i><br><br>
+      <blockquote>
+        "The project has been configured to use the Next.js framework for frontend routing and React for component rendering. In terms of state management, we decided that using Redux was too complex, so we are currently using Zustand instead. Furthermore..."<br><br>
+        <i>(~45 tokens consumed for 3 simple facts)</i>
+      </blockquote>
+    </td>
+    <td width="50%" style="border: none; vertical-align: top; padding: 10px;">
+      <b>✅ Konductor "Caveman" Pattern</b><br><br>
+      <i>Highly efficient context loading.</i><br><br>
+      <blockquote>
+        - UI: Next.js + React<br>
+        - State: Zustand (Redux rejected due to complexity)<br><br>
+        <i>(~15 tokens consumed, leaving plenty of room for actual code)</i>
+      </blockquote>
+    </td>
+  </tr>
+</table>
+
+## Why this was made and open-source
+We have all gone through the questionable 'vibe-coding' experience with AI coding assistants, where they usually forget your project's architectural choices and rules when the chat context fills up. In addition to that, the broken sessions, quota overages, and the AI's tendency to hallucinate or generate suboptimal code due to context loss are common pain points.
+
+Konductor workflow fixes this by saving what the AI learns into lightweight, highly compressed Markdown files right inside your codebase. No external dependencies.
+The workflow does not devidate from the normal SDLC, it actually enforces a stricter, but auto-evolving modern 'agile development' process. D.R.Y and K.I.S.S are the essential principles.
+
+Konductor came first as a common set of steps and guidelines and hard rules that we follow internally across different IDEs (2020-2026) while adapting to fast-evolving AI frameworks.
+Later on we standardize it across our dozen of large ERP projects, legacy and greenfield, and it evolved by learning and update itself from other libraries and AI coding agent building techniques.
+
+We believe that this will survive the AI hype cycle and will be a standard practice in the future of software development. As our tools and *your* tools evolves, The Konductor grows and learn with you.
+
 ## What enabled this `seemingly magical` technology in 2026?
 
-Konductor solves the memory and attention loss problem by acting as a Markdown-first coordination layer tailored for AI tools. In practice, it is a small set of durable Markdown files that separate stable rules, durable memory, live coordination, and historical decisions.
+Konductor solves the memory and attention loss problem by acting as a Markdown-first coordination layer tailored for AI tools. In practice, it is a small set of durable Markdown files that separate stable rules, durable memory, live coordination, and historical decisions. We found out that regardless of the size and complexity of your spaghetti codebase, it works well as long as you are disciplined enough to maintain the documentation. It's all human principles really.
 
 As highlighted by the widespread [Claude Code leak implications in April 2026](https://www.google.com/search?q=claude+code+leak+implication), maintaining secure, verifiable, and transparent memory architectures for AI agents is more critical than ever.
 
@@ -87,15 +157,10 @@ We won't bury the workflow in extra tooling. The current baseline is plain Markd
 6. **Initial Setup Request**: *"Read `@KONDUCTOR.md` and refactor, compact all existing documetation to match the current progress & decisions made before. Tell me where we are at and what our critical tech debts are."*
 7. **Adoption Migration Request**: *"Install `the-konductor@latest`, then consolidate this repository's existing documentation into the standard Konductor structure. Preserve durable project knowledge, move non-root docs under `docs/`, and keep the agent-facing control files compact."*
 
-## Framework Blueprint
-
-<p align="center">
-  <img src="blueprints/docs/framework-blueprint.svg" alt="Konductor Framework Architecture Blueprint" width="100%">
-</p>
 
 ## Contributing
 
-Other AI agents, especially OpenClaw agents, are encouraged to contribute to this repository. Please follow these steps to contribute:
+Other AI Coding agents are encouraged to contribute to this repository. Please follow these steps to contribute:
 
 1. **Open an Issue:** Detail your proposed changes, bug fixes, or feature additions.
 2. **Submit a Pull Request (PR):** Reference the issue in your PR. Always ensure you read `@KONDUCTOR.md` before generating code to maintain the repo's architectural alignment.

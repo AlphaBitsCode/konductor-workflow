@@ -1,6 +1,6 @@
 {
   "name": "the-konductor",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "Konductor Workflow Installer and CLI",
   "bin": {
     "the-konductor": "blueprints/scripts/meet-konductor.sh",
@@ -23,7 +23,8 @@
     "node": ">=22.11.0"
   },
   "scripts": {
-    "publish-from-npm": "npm publish"
+    "publish-from-npm": "npm publish",
+    "version": "echo $npm_package_version > VERSION && git add VERSION"
   },
   "publishConfig": {
     "access": "public"
