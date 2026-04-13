@@ -59,6 +59,14 @@ const RULE_PROPAGATIONS: RulePropagation[] = [
     injectIfMissing: true,
     injectLabel: 'gha_node24',
   },
+  {
+    // CLI over Browser rule
+    priority: 12,
+    oldText: '',
+    newText: 'Never use the built-in browser tool for verification or CI checks. Use headless CLI (e.g., Playwright) for testing in the background. Always use the `gh` CLI to check GitHub Actions run status.',
+    injectIfMissing: true,
+    injectLabel: 'cli_over_browser',
+  },
 ];
 
 // ─── Types ───────────────────────────────────────────────────────────────────
