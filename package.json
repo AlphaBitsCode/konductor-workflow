@@ -29,7 +29,7 @@
     "blueprints/scripts/meet-konductor.sh"
   ],
   "engines": {
-    "node": ">=22.11.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "publish-from-npm": "npm publish",
