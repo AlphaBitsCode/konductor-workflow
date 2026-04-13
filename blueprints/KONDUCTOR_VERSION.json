@@ -1,6 +1,6 @@
 {
   "framework": "Konductor",
-  "installed_version": "0.1.25",
+  "installed_version": "0.1.29",
   "installed_ref": "latest",
   "installed_from": "npm:konductor-workflow",
   "installed_at": "INSTALL_TIME_UTC",
