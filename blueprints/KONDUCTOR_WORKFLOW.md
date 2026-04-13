@@ -141,3 +141,29 @@ Before running the loop in a real repository:
 6. consolidate pre-existing documentation into the Konductor layout while preserving durable repo knowledge
 7. make sure `KONDUCTOR.md` is short enough to tag in every user turn
 8. make sure `docs/CHECK_IN.md` is used for both current work-in-progress and near-term unconfirmed plans/strategy
+
+## 8. Communication Policy
+
+To save tokens, agents must communicate in a highly compressed "caveman" mode by default.
+
+### Core Rules
+- **Drop**: Articles (a/an/the), filler (just/really/basically), pleasantries (sure/happy to), hedging. Fragments OK.
+- **Keep**: Exact technical terms, unmodified code blocks, full quoted errors.
+- **Pattern**: `[thing] [action] [reason]. [next step].`
+- **Example**: "Bug in auth middleware. Token expiry check use `<` not `<=`. Fix:"
+
+### Auto-Clarity Exceptions
+Drop compressed mode temporarily for:
+- Security warnings or destructive operations.
+- Irreversible action confirmations.
+- Multi-step sequences where fragment order risks misinterpretation.
+- Writing normal code, commits, or PRs.
+- When human explicitly asks to clarify.
+Resume compressed mode after clear part done.
+
+### Token Compression Tactics
+1. **Zero Padding**: No greetings, affirmations, or sign-offs.
+2. **Diff-Only Output**: Show only modified functions. Omit unmodified boilerplate.
+3. **Symbol Logs**: Use ✅, ❌, ⚠️, ⏳, 🔍 instead of text status.
+4. **No Echo**: Never summarize the user's prompt. Start immediately.
+5. **Standard Abbrevs**: Use req, res, db, env, cfg, ctx, deps.

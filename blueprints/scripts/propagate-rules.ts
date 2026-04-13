@@ -37,6 +37,14 @@ const DRY_RUN = process.argv.includes('--dry-run');
  */
 const RULE_PROPAGATIONS: RulePropagation[] = [
   {
+    // injected at the top as priority="0"
+    priority: 0,
+    oldText: '',
+    newText: 'Always speak caveman to save tokens. Drop articles, filler, pleasantries. Keep technical terms exact. Fragments OK.',
+    injectIfMissing: true,
+    injectLabel: 'caveman_mode',
+  },
+  {
     priority: 3,
     oldText: 'Maintain >90% coverage standards across unit tests and end-to-end or integration suites, including mobile e2e where relevant; display coverage calculations clearly on test edits.',
     newText: 'Keep CI fast and lean: prefer caching, incremental builds, and parallelism; avoid redundant install or build steps. Maintain >90% coverage across unit, integration, and end-to-end suites (including mobile e2e where relevant); display coverage calculations clearly on test edits.',
@@ -134,8 +142,17 @@ function propagateRule(konductorMd: string, rule: RulePropagation): { content: s
     return { content: updated, action: 'replaced', detail: `Replaced rule priority="${rule.priority}" with new CI/coverage text.` };
   }
 
-  // Old text not found at priority 3 — repo has custom rule 3. Inject as new rule after last </rule>.
+  // Old text not found — inject it.
   if (rule.injectIfMissing) {
+    if (rule.priority === 0) {
+      const newRuleTag = `    <rule priority="0">${rule.newText}</rule>`;
+      const updated = konductorMd.replace('  <rules>', `  <rules>\n${newRuleTag}`);
+      return {
+        content: updated,
+        action: 'injected',
+        detail: `Injected rule as priority="0" at top of ruleset.`,
+      };
+    }
     const lastRuleMatch = konductorMd.match(/.*<rule priority="(\d+)">[^<]+<\/rule>/gs);
     if (!lastRuleMatch) {
       return { content: konductorMd, action: 'skipped-self', detail: 'No <rule> blocks found — skipping injection.' };
