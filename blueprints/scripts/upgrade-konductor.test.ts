@@ -76,7 +76,7 @@ describe('upgrade-konductor coverage', () => {
     await upgrade.main();
 
     expect(consoleLogSpy).toHaveBeenCalledWith('Upgrade command:');
-    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('npx the-konductor@next'));
+    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('npx konductor-workflow@next'));
     
     process.argv = originalArgv;
   });

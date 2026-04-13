@@ -13,7 +13,7 @@ All notable changes to Konductor Workflow should be recorded in this file.
 ### Changed
 
 - Root package version, `VERSION`, and blueprint install manifest now report `0.1.9`.
-- AI-agent installation prompts now reference `npx the-konductor@0.1.9`.
+- AI-agent installation prompts now reference `npx konductor-workflow@0.1.9`.
 - CI smoke-test expectations now match the Markdown-only layout with `docs/CHECK_IN.md` and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`, without the removed scripts or decision directory.
 
 ## [0.1.8] - 2026-04-09
@@ -28,7 +28,7 @@ All notable changes to Konductor Workflow should be recorded in this file.
 - compactness guidance that keeps `KONDUCTOR.md`, `KONDUCTOR_WORKFLOW.md`, `KONDUCTOR_VISION_ROADMAP.md`, and `docs/CHECK_IN.md` short and agent-oriented.
 - `KONDUCTOR_VISION_ROADMAP.md` added to the bootstrap file list, the upgrade review checklist, and all first-customization guides.
 - `docs/CHECK_IN.md` guidance in `KONDUCTOR.md`, `AGENTS.md`, `README.md`, and `KONDUCTOR_WORKFLOW.md`.
-- Explicit copy/paste installation prompt for AI coding agents using `npx the-konductor@0.1.8`.
+- Explicit copy/paste installation prompt for AI coding agents using `npx konductor-workflow@0.1.8`.
 - Adoption guidance to consolidate existing repository documentation into the Konductor structure.
 
 ### Changed

@@ -1,9 +1,19 @@
 {
-  "name": "the-konductor",
+  "name": "konductor-workflow",
   "version": "0.1.26",
   "description": "Konductor Workflow Installer and CLI",
+  "keywords": [
+    "ai",
+    "agents",
+    "workflow",
+    "coding-assistant",
+    "llm",
+    "productivity",
+    "second-brain",
+    "cli"
+  ],
   "bin": {
-    "the-konductor": "blueprints/scripts/meet-konductor.sh",
+    "konductor-workflow": "blueprints/scripts/meet-konductor.sh",
     "konductor": "blueprints/scripts/meet-konductor.sh"
   },
   "files": [

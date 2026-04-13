@@ -37,7 +37,7 @@ while [[ $# -gt 0 ]]; do
       echo "My job is to give your AI assistants a persistent 'second brain' inside"
       echo "your repository via markdown memory logs, so they never lose context."
       echo ""
-      echo "Usage: npx the-konductor [command] [options]"
+      echo "Usage: npx konductor-workflow [command] [options]"
       echo ""
       echo "Commands:"
       echo "  (none)            Install/upgrade framework files in the target directory"

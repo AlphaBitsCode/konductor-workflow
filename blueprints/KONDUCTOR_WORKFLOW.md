@@ -2,7 +2,7 @@
 
 This document is the primary reference guide for using Konductor Workflow inside an adopting repository. It defines the operating model, file responsibilities, and agent behavior expected by the framework. It is intentionally generic and should be adapted to the stack, evaluation loop, and safety requirements of the adopting project.
 
-> **Installation Note:** If you installed the package locally using `npm i the-konductor`, your next step is to run `npx the-konductor` from your repository root to initialize the Konductor persona and boilerplate documents.
+> **Installation Note:** If you installed the package locally using `npm i konductor-workflow`, your next step is to run `npx konductor-workflow` from your repository root to initialize the Konductor persona and boilerplate documents.
 
 ## Framework Blueprint
 

@@ -28,7 +28,7 @@ export function readManifest(): InstalledManifest {
 
 export async function fetchRemoteVersion(ref: string): Promise<string> {
   try {
-    const output = execSync(`npm show the-konductor@${ref} version`, { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'] });
+    const output = execSync(`npm show konductor-workflow@${ref} version`, { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'] });
     return output.trim();
   } catch (err) {
     throw new Error(`Failed to fetch version from npm for ref: ${ref}`);
@@ -60,7 +60,7 @@ export async function main() {
 
   console.log('Upgrade command:');
   console.log(
-    `npx the-konductor@${targetRef} --ref ${targetRef} --force`,
+    `npx konductor-workflow@${targetRef} --ref ${targetRef} --force`,
   );
   console.log();
   console.log('Review these files after upgrade:');

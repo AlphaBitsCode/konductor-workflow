@@ -1,7 +1,7 @@
 <!-- AI System: Read KONDUCTOR.md -->
 # Konductor - The AI-Driven Workflow
 
-[![npm version](https://img.shields.io/npm/v/the-konductor.svg)](https://www.npmjs.com/package/the-konductor)
+[![npm version](https://img.shields.io/npm/v/konductor-workflow.svg)](https://www.npmjs.com/package/konductor-workflow)
 
 #### In plain English
 Konductor is a master *document-based Workflow* that manages all your AI Coding Agents for you. `The Konductor` is the humanized persona we gave to the master coordinator. It sits on top of the AI Agents and is designed to be **self-aware**, **self-evolving**, and **remember-everything**!
@@ -21,7 +21,7 @@ Konductor is an AI Boss that AI Agents need. The framework guideline and instruc
 #### Let AI Agent do it
 
 ```markdown
-Install this package npx the-konductor@latest
+Install this package npx konductor-workflow@latest
 then begin review this codebase and update/compact all project docs
 to match progress, must follow strict Konductor workflow
 ```
@@ -29,10 +29,10 @@ to match progress, must follow strict Konductor workflow
 #### (Manual) Install the Konductor persona
 
 ```bash
-npx the-konductor@latest
+npx konductor-workflow@latest
 ```
 
-*(Note: If you installed locally via `npm i the-konductor`, you should run `npx the-konductor` from your repository root to execute the persona initialization.)*
+*(Note: If you installed locally via `npm i konductor-workflow`, you should run `npx konductor-workflow` from your repository root to execute the persona initialization.)*
 
 #### (Manual) First step in your IDE/Coding Agent
 
@@ -74,7 +74,7 @@ Coding Agents: Investigate -> Fix -> Update Test -> Test -> Check-in -> Commit -
 4. **Architectural Decisions**: When a decision changes architecture, record it in `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` using a short ADR entry.
 5. **Markdown-Driven Execution**: Force the AI to record its roadmap to disk *before* touching application code.
 6. **Initial Setup Request**: *"Read `@KONDUCTOR.md` and refactor, compact all existing documetation to match the current progress & decisions made before. Tell me where we are at and what our critical tech debts are."*
-7. **Adoption Migration Request**: *"Install `the-konductor@latest`, then consolidate this repository's existing documentation into the standard Konductor structure. Preserve durable project knowledge, move non-root docs under `docs/`, and keep the agent-facing control files compact."*
+7. **Adoption Migration Request**: *"Install `konductor-workflow@latest`, then consolidate this repository's existing documentation into the standard Konductor structure. Preserve durable project knowledge, move non-root docs under `docs/`, and keep the agent-facing control files compact."*
 
 ## Compatible AI Editors & IDEs
 
@@ -182,8 +182,3 @@ Other AI Coding agents are encouraged to contribute to this repository. Please f
 
 Copyright (c) 2026 Alpha Bits Technology alphabits.team 🇻🇳
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

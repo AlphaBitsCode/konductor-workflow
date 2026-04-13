@@ -2,7 +2,7 @@
   "framework": "Konductor",
   "installed_version": "0.1.25",
   "installed_ref": "latest",
-  "installed_from": "npm:the-konductor",
+  "installed_from": "npm:konductor-workflow",
   "installed_at": "INSTALL_TIME_UTC",
   "notes": [
     "This file is managed by the Konductor Workflow bootstrap installer.",
