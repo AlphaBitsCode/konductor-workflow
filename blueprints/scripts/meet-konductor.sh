@@ -43,7 +43,6 @@ while [[ $# -gt 0 ]]; do
       echo "  (none)            Install/upgrade framework files in the target directory"
       echo "  hello,  help      Show this introduction and help message"
       echo "  doctor            Check system setup and necessary environment variables"
-      echo "  read,   parse     Read and understand a file (PDF, PPTX, image, etc.) using Groq LLM"
       echo "  status, version   Print the current framework version (v$(cat "$PACKAGE_ROOT/VERSION"))"
       echo ""
       echo "Options:"
@@ -79,37 +78,11 @@ while [[ $# -gt 0 ]]; do
          echo "   Tip: You will need a configured LLM provider to operate AI workflows."
       fi
 
-      echo -n "Checking GROQ API Configuration... "
-      if [[ -f "$TARGET_DIR/.env" ]] && grep -q -i "GROQ_API_KEY" "$TARGET_DIR/.env"; then
-        echo "✅ GROQ keys found in '$TARGET_DIR/.env'"
-      elif [[ -n "${GROQ_API_KEY:-}" ]]; then
-         echo "✅ Global Groq keys found in the active shell environment"
-      else
-         echo "⚠️  WARNING: No local .env file or global GROQ_API_KEY environment keys found!"
-         echo "   Tip: For the 'read' and 'parse' document capabilities, sign up for Groq (https://console.groq.com/keys)"
-         echo "   and add GROQ_API_KEY to your .env file."
-      fi
-      
       echo ""
       echo "Diagnosis complete!"
       exit 0
       ;;
-    read|parse)
-      FILE="${2:-}"
-      if [[ -z "$FILE" ]]; then
-          echo "Usage: npx the-konductor read <file>"
-          exit 1
-      fi
-      
-      # Try locally load .env variables if present
-      if [[ -f "$TARGET_DIR/.env" ]]; then
-        # shellcheck disable=SC2046
-        export $(grep -v '^#' "$TARGET_DIR/.env" | sed 's/\r$//' | awk '/=/ {print $1}' | xargs) 2>/dev/null || true
-      fi
 
-      npx --yes tsx "$SCRIPT_DIR/read-file.ts" "$FILE"
-      exit $?
-      ;;
     --target)
       TARGET_DIR="$2"
       shift 2

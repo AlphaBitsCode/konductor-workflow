@@ -75,7 +75,6 @@ We won't bury the workflow in extra tooling. The current baseline is plain Markd
 | --- | --- | --- |
 | **Meet Konductor & Help** | `npx the-konductor hello` | Prints a friendly greeting and lists all available commands you can use. |
 | **Diagnose Setup** | `npx the-konductor doctor` | Checks if your computer has everything needed to run Konductor properly. |
-| **Read/Parse Documents** | `npx the-konductor read <file>` | Reads a file and intelligently simplifies its contents for AI tools (using LiteParse and Groq). |
 | **Status / Force Update** | `npx the-konductor status` / `--force` | Shows the current state of Konductor or forces it to immediately refresh its memory. |
 
 ### 2. Daily Workflow & Power Tips

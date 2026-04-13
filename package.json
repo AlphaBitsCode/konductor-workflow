@@ -1,6 +1,6 @@
 {
   "name": "the-konductor",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "Konductor Workflow Installer and CLI",
   "bin": {
     "the-konductor": "blueprints/scripts/meet-konductor.sh",
