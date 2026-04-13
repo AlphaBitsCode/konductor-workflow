@@ -8,7 +8,6 @@
   },
   "files": [
     "VERSION",
-    "KONDUCTOR.md",
     "blueprints/AGENTS.md",
     "blueprints/KONDUCTOR.md",
     "blueprints/KONDUCTOR_VERSION.json",

@@ -21,3 +21,7 @@ We believe in giving credit where it is due. Some of the core concepts we used t
 - **Field Notes & Shared Learnings**
   A collection of our ongoing trials, errors, and practical lessons learned while adapting to fast-evolving AI workflows in real-world projects.
   *Reference:* [alphabits.team/news](https://alphabits.team/news?utm_source=github&utm_campaign=kwf)
+
+- **Second Brains "Conductor" Node (March 2024)**
+  The conceptual predecessor to this framework. Originally implemented in Node-RED, the "conductor" served as a critical orchestration node for routing flows and managing agents across our entire enterprise architecture.
+  *Reference:* [AlphaBitsCode/second.brains on GitHub](https://github.com/AlphaBitsCode/second.brains)

@@ -1,70 +1,207 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background-color:#ffffff; font-family:-apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-250 0 1800 1050" width="100%" height="100%" style="font-family:-apple-system, system-ui, sans-serif;">
   <defs>
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.08" />
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-opacity="0.08" />
     </filter>
-    <marker id="arrowhead-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280" />
     </marker>
-    <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6" />
     </marker>
-    <marker id="arrowhead-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#d946ef" />
     </marker>
-    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b" />
     </marker>
   </defs>
 
-  <!-- "You" Box -->
-  <rect x="300" y="30" width="200" height="60" rx="30" fill="#f3f4f6" stroke="#d1d5db" stroke-width="2" />
-  <text x="400" y="65" text-anchor="middle" font-weight="600" font-size="18" fill="#111827">👤 You (Human Vision)</text>
+  <style>
+    @keyframes flow {
+      from { stroke-dashoffset: 24; }
+      to { stroke-dashoffset: 0; }
+    }
+    .flow-line {
+      animation: flow 2.4s linear infinite;
+      stroke-dasharray: 12 12;
+    }
+    .flow-line-slow {
+      animation: flow 5s linear infinite;
+      stroke-dasharray: 12 12;
+    }
+  </style>
 
-  <!-- Konductor Logic Box -->
-  <rect x="150" y="150" width="220" height="80" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)" />
-  <text x="260" y="185" text-anchor="middle" font-weight="bold" font-size="18" fill="#1e40af">Konductor Framework</text>
-  <text x="260" y="210" text-anchor="middle" font-size="14" fill="#3b82f6">(Context &amp; Rules Engine)</text>
+  <!-- Main SVG Background -->
+  <rect x="-250" y="0" width="1800" height="1050" fill="#ffffff" />
 
-  <!-- AI Agents Box -->
-  <rect x="430" y="150" width="220" height="80" rx="8" fill="#fdf4ff" stroke="#d946ef" stroke-width="2" filter="url(#shadow)" />
-  <text x="540" y="185" text-anchor="middle" font-weight="bold" font-size="18" fill="#86198f">AI Coding Assistants</text>
-  <text x="540" y="210" text-anchor="middle" font-size="14" fill="#d946ef">(Claude, Cursor, AI Tools)</text>
+  <!-- ======================== BRANDING ======================== -->
+  <g transform="translate(-220, 20)">
+    <text x="0" y="35" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#1e293b" letter-spacing="-0.5">Konductor AI Workflow</text>
+  </g>
 
-  <!-- The Codebase / Monorepo Container -->
-  <rect x="50" y="300" width="700" height="170" rx="12" fill="#fafafa" stroke="#e5e7eb" stroke-width="3" stroke-dasharray="8 4" />
-  <text x="400" y="330" text-anchor="middle" font-weight="bold" font-size="20" fill="#4b5563">Your Local Project Repository</text>
+  <!-- ======================== CONTEXT BLOCKS ======================== -->
 
-  <!-- Inside Repo: Memory Vault -->
-  <rect x="80" y="360" width="280" height="80" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="2" filter="url(#shadow)" />
-  <text x="220" y="385" text-anchor="middle" font-weight="bold" font-size="16" fill="#065f46">.konductor/ Memory Vault</text>
-  <text x="220" y="410" text-anchor="middle" font-size="13" fill="#059669">ADR History • Rule Contracts • Roadmap</text>
+  <!-- IDE Environment -->
+  <rect x="-220" y="125" width="300" height="185" rx="16" fill="#f8fafc" stroke="none" />
+  <text x="-70" y="165" text-anchor="middle" font-weight="bold" font-size="20" fill="#334155">IDE / Agent Environment</text>
 
-  <!-- Inside Repo: Codebase -->
-  <rect x="390" y="360" width="330" height="80" rx="6" fill="#ffffff" stroke="#9ca3af" stroke-width="2" filter="url(#shadow)" />
-  <text x="555" y="385" text-anchor="middle" font-weight="bold" font-size="16" fill="#374151">Application Code &amp; CI/CD</text>
-  <text x="555" y="410" text-anchor="middle" font-size="13" fill="#6b7280">Web, Mobile APIs, Database, Tests</text>
+  <!-- Human -->
+  <text x="-70" y="245" text-anchor="middle" font-weight="600" font-size="18" fill="#111827">👥 Human Team</text>
 
-  <!-- Arrows -->
+  <!-- AI Workflow Engine -->
+  <rect x="300" y="80" width="1150" height="260" rx="16" fill="#fdf4ff" stroke="none" />
+  <text x="875" y="130" text-anchor="middle" font-weight="bold" font-size="22" fill="#86198f">Autonomous Metacognitive Loop (AI Agents)</text>
+
+  <!-- Process nodes inside AI -->
+  <rect x="340" y="210" width="160" height="60" rx="8" fill="#ffffff" stroke="#d946ef" stroke-width="2" />
+  <text x="420" y="245" text-anchor="middle" font-size="16" font-weight="600" fill="#a21caf">Context Load</text>
+
+  <rect x="640" y="210" width="140" height="60" rx="8" fill="#ffffff" stroke="#d946ef" stroke-width="2" />
+  <text x="710" y="245" text-anchor="middle" font-size="16" font-weight="600" fill="#a21caf">Clarify &amp; Plan</text>
+
+  <rect x="920" y="210" width="140" height="60" rx="8" fill="#ffffff" stroke="#d946ef" stroke-width="2" />
+  <text x="990" y="245" text-anchor="middle" font-size="16" font-weight="600" fill="#a21caf">Execution &amp; CI</text>
+
+  <rect x="1150" y="210" width="200" height="60" rx="8" fill="#ffffff" stroke="#d946ef" stroke-width="2" />
+  <text x="1250" y="245" text-anchor="middle" font-size="16" font-weight="600" fill="#a21caf">Reflection/Memory</text>
+
+  <!-- The Codebase container -->
+  <rect x="300" y="550" width="1150" height="430" rx="16" fill="#fafafa" stroke="none" />
+  <text x="875" y="955" text-anchor="middle" font-weight="bold" font-size="24" fill="#4b5563">Your Local Codebase &amp; Konductor Memory (Markdown-first)</text>
+
+  <!-- Active Work / Check in -->
+  <rect x="340" y="620" width="240" height="300" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)" />
+  <text x="460" y="660" text-anchor="middle" font-weight="bold" font-size="18" fill="#b45309">Short-term Memory</text>
+  <rect x="360" y="680" width="200" height="50" rx="6" fill="#ffffff" stroke="#fcd34d" stroke-width="2" />
+  <text x="460" y="710" text-anchor="middle" font-size="15" fill="#92400e" font-weight="600">docs/CHECK_IN.md</text>
+  <text x="460" y="780" text-anchor="middle" font-size="14" fill="#b45309">Live collaboration,</text>
+  <text x="460" y="810" text-anchor="middle" font-size="14" fill="#b45309">work-in-progress,</text>
+  <text x="460" y="840" text-anchor="middle" font-size="14" fill="#b45309">tactical planning</text>
+
+  <!-- Memory Vault -->
+  <rect x="660" y="620" width="400" height="300" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2" filter="url(#shadow)" />
+  <text x="860" y="650" text-anchor="middle" font-weight="bold" font-size="18" fill="#065f46">Long-term Vault</text>
+  <text x="860" y="668" text-anchor="middle" font-size="14" fill="#047857" font-style="italic">📂 .konductor/</text>
+
+  <rect x="700" y="680" width="320" height="40" rx="6" fill="#ffffff" stroke="#6ee7b7" stroke-width="2" />
+  <text x="860" y="705" text-anchor="middle" font-size="15" fill="#059669" font-weight="600">KONDUCTOR_MEMORY.md</text>
+
+  <rect x="700" y="740" width="320" height="40" rx="6" fill="#ffffff" stroke="#6ee7b7" stroke-width="2" />
+  <text x="860" y="765" text-anchor="middle" font-size="15" fill="#059669" font-weight="600">KONDUCTOR_VISION.md</text>
+
+  <rect x="700" y="800" width="320" height="40" rx="6" fill="#ffffff" stroke="#6ee7b7" stroke-width="2" />
+  <text x="860" y="825" text-anchor="middle" font-size="13" fill="#059669" font-weight="600">KONDUCTOR_ADR_HISTORY.md</text>
+
+  <!-- Executable Base -->
+  <rect x="1150" y="620" width="240" height="300" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)" />
+  <text x="1270" y="660" text-anchor="middle" font-weight="bold" font-size="18" fill="#1e40af">App &amp; Config</text>
+
+  <rect x="1170" y="680" width="200" height="50" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="2" />
+  <text x="1270" y="710" text-anchor="middle" font-size="15" fill="#1d4ed8" font-weight="600">Source / Configs</text>
+
+  <rect x="1170" y="750" width="200" height="50" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="2" />
+  <text x="1270" y="780" text-anchor="middle" font-size="15" fill="#1d4ed8" font-weight="600">CI/CD &amp; Tests</text>
+  <text x="1270" y="840" text-anchor="middle" font-size="14" fill="#1e40af">E2E, Unit Tests</text>
+
+
+  <!-- ======================== CONNECTION PATHS ======================== -->
+
+  <!-- 1. Prompt -->
+  <path d="M 30 240 L 340 240" class="flow-line" fill="none" stroke="#10b981" stroke-width="3" marker-end="url(#arrow-green)" />
+
+  <!-- 2A. Reads Check-in -->
+  <path d="M 420 620 L 420 270" fill="none" class="flow-line" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow-orange)" />
+
+  <!-- 2B. Extracts Vault -->
+  <path d="M 740 620 C 740 425, 500 425, 500 270" fill="none" class="flow-line" stroke="#10b981" stroke-width="3" marker-end="url(#arrow-green)" />
+
+  <!-- 3. Strategy connection -->
+  <path d="M 500 240 L 640 240" fill="none" class="flow-line-slow" stroke="#d946ef" stroke-width="3" marker-end="url(#arrow-purple)" />
   
-  <!-- You to Konductor (Roadmap) -->
-  <path d="M 360 90 L 260 143" fill="none" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead-gray)" />
-  <text x="260" y="115" text-anchor="middle" font-size="13" fill="#4b5563" font-weight="500">Defines Rules</text>
+  <!-- 4. Check-in Plan -->
+  <path d="M 710 270 C 710 380, 550 380, 550 620" fill="none" class="flow-line" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow-orange)" />
+  
+  <!-- 5. Execute connection -->
+  <path d="M 780 240 L 920 240" fill="none" class="flow-line-slow" stroke="#d946ef" stroke-width="3" marker-end="url(#arrow-purple)" />
+  
+  <!-- Exec->Reflect internal connection -->
+  <path d="M 1060 240 L 1150 240" fill="none" class="flow-line-slow" stroke="#d946ef" stroke-dasharray="6 6" stroke-width="2" marker-end="url(#arrow-purple)" />
 
-  <!-- You to AI (Tasks) -->
-  <path d="M 440 90 L 540 143" fill="none" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead-gray)" />
-  <text x="540" y="115" text-anchor="middle" font-size="13" fill="#4b5563" font-weight="500">Assigns Tasks</text>
+  <!-- 6. Mutates Code -->
+  <path d="M 990 270 C 990 450, 1200 450, 1200 620" fill="none" class="flow-line" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrow-blue)" />
 
-  <!-- Konductor to AI (Rules alignment) -->
-  <path d="M 370 190 L 420 190" fill="none" stroke="#3b82f6" stroke-width="3" stroke-dasharray="4 2" marker-end="url(#arrowhead-blue)" />
-  <text x="395" y="180" text-anchor="middle" font-size="13" fill="#2563eb" font-weight="bold">Aligns</text>
+  <!-- 7. Eval Signals -->
+  <path d="M 1310 620 L 1310 270" fill="none" class="flow-line" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)" />
 
-  <!-- AI to Repo (Writes Code) -->
-  <path d="M 540 230 L 555 350" fill="none" stroke="#d946ef" stroke-width="2.5" marker-end="url(#arrowhead-purple)" />
-  <text x="615" y="275" text-anchor="middle" font-size="13" fill="#86198f" font-weight="600">Writes &amp; Tests Code</text>
+  <!-- 8A. Updates Status -->
+  <!-- Stepping down left entirely between the modules! -->
+  <path d="M 1190 270 C 1190 490, 520 490, 520 620" fill="none" class="flow-line" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow-orange)" />
 
-  <!-- Repo to Konductor (Reads state) -->
-  <path d="M 220 350 L 260 238" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrowhead-green)" />
-  <text x="160" y="295" text-anchor="middle" font-size="13" fill="#065f46" font-weight="600">Feeds Context Map</text>
+  <!-- 8B. Persists Memory -->
+  <!-- Swooping down left into vault -->
+  <path d="M 1250 270 C 1250 430, 990 430, 990 620" fill="none" class="flow-line" stroke="#10b981" stroke-width="3" marker-end="url(#arrow-green)" />
+
+  <!-- 9. Return Loop -->
+  <!-- Over-arching elbow returning the loop securely inside the engine bounds -->
+  <path d="M 1250 210 L 1250 100 L 420 100 L 420 210" fill="none" class="flow-line-slow" stroke="#d946ef" stroke-width="3" marker-end="url(#arrow-purple)" />
+
+
+  <!-- ======================== LABEL RECTANGLES (Numbered Steps) ======================== -->
+
+  <!-- 1 -->
+  <rect x="120" y="200" width="130" height="35" fill="#ffffff" rx="4" />
+  <text x="185" y="215" text-anchor="middle" font-size="14" fill="#10b981" font-weight="600">💬 1. Prompt +</text>
+  <text x="185" y="232" text-anchor="middle" font-size="13" fill="#10b981" font-weight="600">@KONDUCTOR.md</text>
+
+  <!-- 2A -->
+  <rect x="330" y="430" width="180" height="30" fill="#ffffff" rx="4" />
+  <text x="420" y="450" text-anchor="middle" font-size="14" fill="#d97706" font-weight="600">👀 2A. Reads Check-in</text>
+
+  <!-- 2B -->
+  <rect x="505" y="415" width="230" height="30" fill="#ffffff" rx="4" />
+  <text x="620" y="435" text-anchor="middle" font-size="14" fill="#059669" font-weight="600">🧠 2B. Extracts Rules &amp; Vision</text>
+
+  <!-- 3 -->
+  <rect x="495" y="200" width="150" height="35" fill="transparent" rx="4" />
+  <text x="570" y="215" text-anchor="middle" font-size="13" fill="#a21caf" font-weight="600">🎯 3.</text>
+  <text x="570" y="232" text-anchor="middle" font-size="13" fill="#a21caf" font-weight="600">Clarify &amp; Plan</text>
+
+  <!-- 4. NEW CHECK IN PLAN -->
+  <rect x="700" y="350" width="220" height="30" fill="transparent" rx="4" />
+  <text x="810" y="370" text-anchor="middle" font-size="14" fill="#d97706" font-weight="600">📝 4. Check-in before execute</text>
+
+  <!-- 5 -->
+  <rect x="780" y="200" width="140" height="35" fill="transparent" rx="4" />
+  <text x="850" y="215" text-anchor="middle" font-size="13" fill="#a21caf" font-weight="600">⚙️ 5.</text>
+  <text x="850" y="232" text-anchor="middle" font-size="13" fill="#a21caf" font-weight="600">Execute Task</text>
+
+  <!-- 6 -->
+  <rect x="980" y="365" width="230" height="30" fill="#ffffff" rx="4" />
+  <text x="1095" y="385" text-anchor="middle" font-size="14" fill="#2563eb" font-weight="600">🛠️ 6. Write Code &amp; Tests</text>
+
+  <!-- 7 -->
+  <rect x="1200" y="390" width="220" height="30" fill="#ffffff" rx="4" />
+  <text x="1310" y="410" text-anchor="middle" font-size="14" fill="#4b5563" font-weight="600">🧪 7. Eval Signals (Pass/Fail)</text>
+
+  <!-- 8A -->
+  <rect x="765" y="465" width="220" height="30" fill="#ffffff" rx="4" />
+  <text x="875" y="485" text-anchor="middle" font-size="14" fill="#d97706" font-weight="600">📝 8A. Check-in after execute</text>
+
+  <!-- 8B -->
+  <rect x="995" y="500" width="250" height="30" fill="#ffffff" rx="4" />
+  <text x="1120" y="520" text-anchor="middle" font-size="14" fill="#059669" font-weight="600">💾 8B. Persists Memory &amp; ADRs</text>
+
+  <!-- 9 -->
+  <rect x="735" y="85" width="270" height="30" fill="#fdf4ff" rx="4" />
+  <text x="870" y="105" text-anchor="middle" font-size="14" fill="#a21caf" font-weight="600">🔁 9. Returns to next cycle / task</text>
+
+  <!-- ======================== LOGO (Bottom Left) ======================== -->
+  <g transform="translate(-220, 970)">
+    <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAMAAADlRUG7AAAAP1BMVEUAAAD/////+/v5+fn8/Pz8+fn6+fn8+/v8/Pz9+/v5+Pj6+Pj7+fn6+Pj7+fn8+/v6+fn6+Pj//v7//v749vaoldtHAAAAE3RSTlMABAsSGSUyQ1Rgcoebrr/K2erx170TdwAAA8VJREFUeNqtmdly4yAQRQGxCsQi8f9/Oos8k7itGGhAPm+puOq4W1fNYtKGcqlX6zZ/sjm7askpuQOzhuIfksaFfCUFZwSb97pjV20zlTbmd46TPa582nsce6tmpnwqWJ8kJ8kEMh0n21KtVvlKscDuBBlH7cfhRVW7NbWg5hPm5Dkps9jU9gLR0PFu1+rFuowXjSMNeWPNPV4gKtKD1a/eeKzkCnWdWmBfCQq1x6Gu0b7WzIqpwlhph/fY5TNE/vzr0igeR7zAxtpedzwAF9uSuMTZj3kBv6Dea80XLx/2Apto9hnMBRiSq2mzSscXUfwTXSNBkfcINS+oOfzzLs7Q638x77zZJPByl5OhY4GeT5hOp5c9g5RWZHAM4lnd/PW1+JYfJP1sdMbE+95h5uVcPwTLZSCnr08uW8sb3KrkiVpdnDCLl8Rz999rvjtRLzg5xSls/bTbB80iZA9meMbtkbVbSckFqprqjb9786tZ+NPLvuNeKzgIUkDG/pplzA8CexnMsELWCraNvSKebfCeFBMvKgUbUkU32h0W8MJUCgWzrXgpmTWDF/CU/CQWxbbgHTQzn3OjZFnstGf4DrmKF287mm3p63SSBEN3mIX/9kIdzUxDoGfNC5grXpovwCzFkR3PmYecswMv8ogt6UJ1mEXIFrzIDn4X5ANm9mUue4kriAPtP4MNrBh4thzpRk+bQ0G8km7otDkWMq3Hztpz5lQQKzKCRsz94ijJ58xsVnz/fR5oNSKeXZ/nwzVvnn+d7q9V8wPkvvn+yASE6DLzvkUiiW5vDLIr2+9mNbcswvY1QM1DZpYLxKXPm3LuNjMkXd0lw2H+pdtpoGabJ5+yivnkR80DZpVLbKy33hM4lVEzYI65BHZfp6+hmMm2y0U0acBsvhL5eLZFBtCJDVcIc+alkWt8ZJuU34mip9uRE8DkK60DD1zdNGo2nWbuc4W0CvIDscZcIcqetyqKRslAtPKl7EVa0JbMg2vV4nOd5K2W4kRp63MbmIumz6wyQjrJF7A4mq5Vkm75ExgCdGZbxDwIPnI0YobJe4+kR3a9Di7K73rVyH47iPpPPzj4IcDsiBeuKybxkpSgZke8MMAQ0NmKdxu8t6PtGKlidsQLE2wyzkjNxVUCSRgeK8Rc9QLUDsdKEAyz172ACkNtXtnQDU3gpAp3qb9cNXaiC6J9keM7y7UL6cTs4G3AdOjR8qHbCni+bbVP7SyDttcM3iZMulgt1uuFjKLBi8HVusV3qVWCkttQpO6FMUYfkD8Pfp/8Ip/gL6pTd2/guJXwAAAAAElFTkSuQmCC" width="75" height="50" preserveAspectRatio="xMidYMid meet" />
+  </g>
 
 </svg>

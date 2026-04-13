@@ -39,3 +39,7 @@ blueprints/memory/short-term/
 
 # Git
 .gitignore
+
+# Root repo files that are not part of published template
+/KONDUCTOR.md
+/.konductor/
