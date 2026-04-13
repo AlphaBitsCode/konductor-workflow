@@ -7,7 +7,7 @@
 Konductor is a master *document-based Workflow* that manages all your AI Coding Agents for you. `The Konductor` is the humanized persona we gave to the master coordinator. It sits on top of the AI Agents and is designed to be **self-aware**, **self-evolving**, and **remember-everything**!
  
 #### In Technical terms
-It is 100% document-based set of guidelines and rules, no-code, **document-based (Markdown)**, and **AI-provider agnostic** it is to be embedded as part of your codebase and evolve with your project. It is designed to be context-efficient, self-updating. It works with all IDEs and modernish JS/Python/TS/PHP/Go/Rust/Java/C#/C/C++ languages, framework, and tools!
+It is 100% document-based set of guidelines and rules, no-code, **Markdown format**, and **AI-provider agnostic** it is to be embedded as part of your codebase and evolve with your project. It is designed to be context-efficient, self-updating. It works with all IDEs and modernish JS/Python/TS/PHP/Go/Rust/Java/C#/C/C++ languages, framework, and tools!
 
 #### In AI Agent terms
 Konductor is an AI Boss that AI Agents need. The framework guideline and instructions will guide AI agents through the development process, and make sure they are always on the right track. It is the best boss you will ever have, because it is always there for you, and it never forgets anything!
@@ -24,12 +24,15 @@ Konductor is an AI Boss that AI Agents need. The framework guideline and instruc
 npx the-konductor@latest
 ```
 
+*(Note: If you installed locally via `npm i the-konductor`, you should run `npx the-konductor` from your repository root to execute the persona initialization.)*
+
 ####  First setup step in your IDE/Coding Agent
 
 Copy paste this into your favourite IDE workspace (Claude, Antigravity, Cursor, etc.) to begin using the workflow framework:
 
 ```
-Begin review and update/compact all project documentations follow strict Konductor workflow @KONDUCTOR.md
+Begin review and update/compact all project documentations
+follow strict Konductor workflow @KONDUCTOR.md
 ```
 
 Let it run for a few minutes with your Best thinking model for best accuracy. This will align your project documentation with the Konductor workflow framework, and set up the AI agents to work with the framework. After this, the Konductor persona will be embedded in your project, and you can use it to manage your AI agents.
@@ -140,7 +143,7 @@ Later on we standardize it across our dozen of large ERP projects, legacy and gr
 
 We believe that this will survive the AI hype cycle and will be a standard practice in the future of software development. As our tools and *your* tools evolves, The Konductor grows and learn with you.
 
-## What enabled this `magical` technology in 2026?
+## What enabled this *magical* technology in 2026?
 
 Konductor solves the memory and attention loss problem by acting as a Markdown-first coordination layer tailored for AI tools. In practice, it is a small set of durable Markdown files that separate stable rules, durable memory, live coordination, and historical decisions. We found out that regardless of the size and complexity of your spaghetti codebase, it works well as long as you are disciplined enough to maintain the documentation. It's all human principles really.
 

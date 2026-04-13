@@ -2,6 +2,77 @@
 
 This document is the primary reference guide for using Konductor Workflow inside an adopting repository. It defines the operating model, file responsibilities, and agent behavior expected by the framework. It is intentionally generic and should be adapted to the stack, evaluation loop, and safety requirements of the adopting project.
 
+> **Installation Note:** If you installed the package locally using `npm i the-konductor`, your next step is to run `npx the-konductor` from your repository root to initialize the Konductor persona and boilerplate documents.
+
+## Framework Blueprint
+
+```mermaid
+flowchart TD
+    %% Human Interface
+    H((👥 Human Team<br/>IDE Environment))
+
+    %% Core Application
+    subgraph Engine["🤖 Autonomous Metacognitive Loop (AI Agents)"]
+        direction LR
+        C_LOAD["Context Load"]
+        C_PLAN["Clarify & Plan"]
+        C_EXEC["Execution & CI"]
+        C_MEM["Reflection / Memory"]
+        
+        C_LOAD -->|"🎯 3. Clarify & Plan"| C_PLAN
+        C_PLAN -->|"⚙️ 5. Execute Task"| C_EXEC
+        C_EXEC -.-> C_MEM
+        C_MEM -->|"🔁 9. Next cycle / task"| C_LOAD
+    end
+
+    %% Storage & Repository
+    subgraph Repo["Your Local Codebase & Konductor Memory (Markdown-first)"]
+        direction LR
+        
+        subgraph STM["Short-term Memory"]
+            CHECKIN["docs/CHECK_IN.md<br/>Live collaboration, WIP, tactical planning"]
+        end
+        
+        subgraph LTM["Long-term Vault (.konductor/)"]
+            KM["KONDUCTOR_MEMORY.md"]
+            KV["KONDUCTOR_VISION_ROADMAP.md"]
+            KA["KONDUCTOR_ADR_HISTORY.md"]
+        end
+        
+        subgraph App["App & Config"]
+            SRC["Source / Configs"]
+            TEST["CI/CD & Tests (E2E, Unit)"]
+        end
+    end
+
+    %% Connections
+    H -->|"💬 1. Prompt + @KONDUCTOR.md"| C_LOAD
+    CHECKIN -->|"👀 2A. Reads Check-in"| C_LOAD
+    LTM -->|"🧠 2B. Extracts Rules & Vision"| C_LOAD
+    C_PLAN -->|"📝 4. Check-in before execute"| CHECKIN
+    C_EXEC -->|"🛠️ 6. Write Code & Tests"| App
+    App -->|"🧪 7. Eval Signals (Pass/Fail)"| C_MEM
+    C_MEM -->|"📝 8A. Check-in after execute"| CHECKIN
+    C_MEM -->|"💾 8B. Persists Memory & ADRs"| LTM
+
+    %% Styling
+    classDef user fill:#f8fafc,stroke:#cbd5e1,stroke-width:2px;
+    classDef engineBox fill:#fdf4ff,stroke:#d946ef,stroke-width:2px,stroke-dasharray: 5 5;
+    classDef codebaseBox fill:#fafafa,stroke:#e2e8f0,stroke-width:2px;
+    classDef stmBox fill:#fffbeb,stroke:#f59e0b,stroke-width:2px;
+    classDef ltmBox fill:#ecfdf5,stroke:#10b981,stroke-width:2px;
+    classDef appBox fill:#eff6ff,stroke:#3b82f6,stroke-width:2px;
+    classDef processNode fill:#ffffff,stroke:#a21caf,stroke-width:2px,color:#a21caf,font-weight:bold;
+
+    class H user;
+    class Engine engineBox;
+    class Repo codebaseBox;
+    class STM,CHECKIN stmBox;
+    class LTM,KM,KV,KA ltmBox;
+    class App,SRC,TEST appBox;
+    class C_LOAD,C_PLAN,C_EXEC,C_MEM processNode;
+```
+
 ## 1. Core Concept
 
 A self-improving agent setup combines:
