@@ -3,7 +3,8 @@
 
 [![npm version](https://img.shields.io/npm/v/the-konductor.svg)](https://www.npmjs.com/package/the-konductor)
 
-**`Konductor` is a framework that makes your AI coding assistants `self-aware, self-evolving, and never-forget!`**
+**`Konductor` is a framework that makes your AI coding assistants `self-aware, self-evolving, and never-forget!`**  
+It is **100% document-based**, **local-first (Markdown)**, and **AI-provider agnostic**—meaning it works flawlessly whether you prefer Copilot, Cursor, Anthropic Claude, OpenAI, or direct terminal agents.
 
 Whenever you work with AI coding assistants (like Claude, ChatGPT, Cursor, or Antigravity), they usually forget your project's architectural choices and rules when the chat context fills up. Konductor fixes this by saving what the AI learns into lightweight Markdown files right inside your codebase.
 
@@ -74,7 +75,6 @@ We won't bury the workflow in extra tooling. The current baseline is plain Markd
 | Action | Command | What it does simply |
 | --- | --- | --- |
 | **Meet Konductor & Help** | `npx the-konductor hello` | Prints a friendly greeting and lists all available commands you can use. |
-| **Diagnose Setup** | `npx the-konductor doctor` | Checks if your computer has everything needed to run Konductor properly. |
 | **Status / Force Update** | `npx the-konductor status` / `--force` | Shows the current state of Konductor or forces it to immediately refresh its memory. |
 
 ### 2. Daily Workflow & Power Tips

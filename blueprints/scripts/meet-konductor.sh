@@ -42,44 +42,11 @@ while [[ $# -gt 0 ]]; do
       echo "Commands:"
       echo "  (none)            Install/upgrade framework files in the target directory"
       echo "  hello,  help      Show this introduction and help message"
-      echo "  doctor            Check system setup and necessary environment variables"
       echo "  status, version   Print the current framework version (v$(cat "$PACKAGE_ROOT/VERSION"))"
       echo ""
       echo "Options:"
       echo "  --target <dir>    Specify installation directory (default: current directory)"
       echo "  --force           Overwrite existing framework files"
-      exit 0
-      ;;
-    doctor)
-      echo "🩺 Running Konductor setup checks..."
-      echo ""
-      
-      echo -n "Checking Node.js... "
-      if command -v node >/dev/null 2>&1; then
-        echo "✅ Installed ($(node -v))"
-      else
-        echo "❌ NOT installed (Node >= v20.12.0 recommended)"
-      fi
-      
-      echo -n "Checking Git... "
-      if command -v git >/dev/null 2>&1; then
-        echo "✅ Installed"
-      else
-        echo "❌ NOT installed"
-      fi
-      
-      echo -n "Checking API Configuration... "
-      if [[ -f "$TARGET_DIR/.env" ]] && (grep -q -i "API_KEY" "$TARGET_DIR/.env" || grep -q "AI_LLM" "$TARGET_DIR/.env"); then
-        echo "✅ Relevant keys found in '$TARGET_DIR/.env'"
-      elif [[ -n "${AI_LLM_API_KEY:-}" || -n "${OPENAI_API_KEY:-}" || -n "${ANTHROPIC_API_KEY:-}" ]]; then
-         echo "✅ Global AI keys found in the active shell environment"
-      else
-         echo "⚠️  WARNING: No local .env file or global AI environment keys found!"
-         echo "   Tip: You will need a configured LLM provider to operate AI workflows."
-      fi
-
-      echo ""
-      echo "Diagnosis complete!"
       exit 0
       ;;
 
