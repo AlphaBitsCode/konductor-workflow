@@ -12,7 +12,7 @@ PACKAGE_ROOT="$(dirname "$(dirname "$SCRIPT_DIR")")"
 TARGET_DIR="${TARGET_DIR:-$PWD}"
 FORCE=0
 
-REQUIRED_NODE="22.11.0"
+REQUIRED_NODE="18.0.0"
 if ! command -v node >/dev/null 2>&1; then
   echo "⚠️  WARNING: Node.js is not installed. Konductor requires >= v$REQUIRED_NODE."
   echo "👉 We highly recommend using nvm: nvm install $REQUIRED_NODE && nvm use $REQUIRED_NODE"
@@ -130,5 +130,7 @@ echo "  3. Review .konductor/memory/KONDUCTOR_VISION_ROADMAP.md"
 echo "  4. Review .konductor/memory/KONDUCTOR_MEMORY.md"
 echo "  5. Use .konductor/memory/KONDUCTOR_MEMORY.md for long-term memory"
 echo "  6. Use .konductor/memory/KONDUCTOR_ADR_HISTORY.md for critical architectural decisions"
+echo "  7. First-time setup: copy & paste this into your AI assistant:"
+echo "     \"Review this repository and reorganize project documentation into the Konductor workflow documentation format. Move all project documentation except README.md and KONDUCTOR.md into docs/, preserve durable project knowledge, consolidate long-term context into .konductor/memory/KONDUCTOR_MEMORY.md, and update the Konductor files to reflect the actual repository.\""
 echo
 echo "Installed framework version: $FRAMEWORK_VERSION"
