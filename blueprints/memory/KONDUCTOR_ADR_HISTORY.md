@@ -6,8 +6,8 @@ This document is the durable architectural decision ledger for the repository. U
 
 - Status: Accepted
 - Context: Adopting repositories need a machine-readable way to see which Konductor workflow version is installed.
-- Decision: Keep a root `VERSION` file in the framework repo and install `.konductor/KONDUCTOR_VERSION.json` into adopting repositories.
-- Consequences: Upgrades stay reviewable and version drift becomes visible without external tooling.
+- Decision: Embed `<framework_version>` directly in `KONDUCTOR.md` and use that tag as the single framework version source for both package and adopting repositories.
+- Consequences: Version state stays attached to the primary contract file, installer metadata stays smaller, and release tooling only needs to synchronize one XML tag in each contract copy.
 
 ### ADR-002: Vision Objectives As Stable WHY
 

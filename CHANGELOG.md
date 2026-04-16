@@ -2,6 +2,22 @@
 
 All notable changes to Konductor Workflow should be recorded in this file.
 
+## [0.1.32] - 2026-04-16
+
+### Changed
+
+- Upgrade flow now always replaces `KONDUCTOR.md` and `.konductor/KONDUCTOR_WORKFLOW.md` from the framework package, while keeping the rest of the bootstrap files preserve-by-default.
+- Installer copy logic was simplified around a small explicit replace-on-upgrade rule for those two framework control files.
+- Version bump automation now force-adds tracked `KONDUCTOR.md` files so `npm version` works even though the root contract is ignored by repo packaging rules.
+
+## [0.1.31] - 2026-04-16
+
+### Changed
+
+- Framework version source moved into a minimal `<framework_version>` tag inside `KONDUCTOR.md` and `blueprints/KONDUCTOR.md`.
+- Release sync and verification now compare `package.json` against embedded `KONDUCTOR.md` version tags instead of separate version manifest files.
+- Installer version output now reads the embedded contract tag and no longer installs `.konductor/KONDUCTOR_VERSION.json`.
+
 ## [0.1.9] - 2026-04-09
 
 ### Added

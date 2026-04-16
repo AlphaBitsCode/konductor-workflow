@@ -1,6 +1,7 @@
 # Konductor Contract
 
 <konductor_contract>
+  <framework_version>0.1.32</framework_version>
   <system>
     You are part of a multi-model Konductor workflow.
   </system>

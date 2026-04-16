@@ -3,23 +3,19 @@ const path = require("path");
 
 const repoRoot = path.resolve(__dirname, "..");
 const packageJsonPath = path.join(repoRoot, "package.json");
-const versionPath = path.join(repoRoot, "VERSION");
-const blueprintVersionPath = path.join(
-  repoRoot,
-  "blueprints",
-  "KONDUCTOR_VERSION.json",
-);
+const contractPaths = [
+  path.join(repoRoot, "KONDUCTOR.md"),
+  path.join(repoRoot, "blueprints", "KONDUCTOR.md"),
+];
 
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
 const version = packageJson.version;
 
-fs.writeFileSync(versionPath, `${version}\n`);
-
-const blueprintVersion = JSON.parse(
-  fs.readFileSync(blueprintVersionPath, "utf8"),
-);
-blueprintVersion.installed_version = version;
-fs.writeFileSync(
-  blueprintVersionPath,
-  `${JSON.stringify(blueprintVersion, null, 2)}\n`,
-);
+for (const contractPath of contractPaths) {
+  const content = fs.readFileSync(contractPath, "utf8");
+  const nextContent = content.replace(
+    /<framework_version>.*<\/framework_version>/,
+    `<framework_version>${version}</framework_version>`,
+  );
+  fs.writeFileSync(contractPath, nextContent);
+}

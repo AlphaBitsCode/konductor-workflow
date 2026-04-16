@@ -1,6 +1,6 @@
 {
   "name": "konductor-workflow",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "description": "Konductor Workflow Installer and CLI",
   "keywords": [
     "ai",
@@ -17,11 +17,9 @@
     "konductor": "blueprints/scripts/meet-konductor.sh"
   },
   "files": [
-    "VERSION",
     "blueprints/AGENTS.md",
     "blueprints/.gitignore",
     "blueprints/KONDUCTOR.md",
-    "blueprints/KONDUCTOR_VERSION.json",
     "blueprints/KONDUCTOR_WORKFLOW.md",
     "blueprints/docs/CHECK_IN.md",
     "blueprints/memory/KONDUCTOR_ADR_HISTORY.md",
@@ -37,7 +35,7 @@
     "prepublishOnly": "npm run verify:release",
     "release:patch": "npm version patch && npm run verify:release",
     "verify:release": "node scripts/verify-release.js",
-    "version": "node scripts/sync-version.js && git add VERSION blueprints/KONDUCTOR_VERSION.json"
+    "version": "node scripts/sync-version.js && git add -f KONDUCTOR.md blueprints/KONDUCTOR.md"
   },
   "publishConfig": {
     "access": "public"

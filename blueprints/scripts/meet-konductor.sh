@@ -12,6 +12,18 @@ PACKAGE_ROOT="$(dirname "$(dirname "$SCRIPT_DIR")")"
 TARGET_DIR="${TARGET_DIR:-$PWD}"
 FORCE=0
 
+read_framework_version() {
+  local contract_path="$1"
+  sed -n 's|.*<framework_version>\([^<]*\)</framework_version>.*|\1|p' "$contract_path" | head -n1
+}
+
+FRAMEWORK_VERSION="$(read_framework_version "$PACKAGE_ROOT/blueprints/KONDUCTOR.md")"
+
+if [[ -z "$FRAMEWORK_VERSION" ]]; then
+  echo "ERROR: Missing <framework_version> tag in $PACKAGE_ROOT/blueprints/KONDUCTOR.md" >&2
+  exit 1
+fi
+
 REQUIRED_NODE="18.0.0"
 if ! command -v node >/dev/null 2>&1; then
   echo "⚠️  WARNING: Node.js is not installed. Konductor requires >= v$REQUIRED_NODE."
@@ -29,7 +41,7 @@ fi
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --version|status|version)
-      cat "$PACKAGE_ROOT/VERSION"
+      echo "$FRAMEWORK_VERSION"
       exit 0
       ;;
     hello|help|--help|-h)
@@ -42,7 +54,7 @@ while [[ $# -gt 0 ]]; do
       echo "Commands:"
       echo "  (none)            Install/upgrade framework files in the target directory"
       echo "  hello,  help      Show this introduction and help message"
-      echo "  status, version   Print the current framework version (v$(cat "$PACKAGE_ROOT/VERSION"))"
+      echo "  status, version   Print current framework version (v$FRAMEWORK_VERSION)"
       echo ""
       echo "Options:"
       echo "  --target <dir>    Specify installation directory (default: current directory)"
@@ -77,11 +89,15 @@ FILE_MAPPINGS=(
   "blueprints/KONDUCTOR_WORKFLOW.md:.konductor/KONDUCTOR_WORKFLOW.md"
   "blueprints/memory/KONDUCTOR_MEMORY.md:.konductor/memory/KONDUCTOR_MEMORY.md"
   "blueprints/memory/KONDUCTOR_ADR_HISTORY.md:.konductor/memory/KONDUCTOR_ADR_HISTORY.md"
-  "blueprints/KONDUCTOR_VERSION.json:.konductor/KONDUCTOR_VERSION.json"
   "blueprints/.gitignore:.konductor/.gitignore"
 )
 
 mkdir -p "$TARGET_DIR"
+
+should_replace_on_upgrade() {
+  local rel_dest="$1"
+  [[ "$rel_dest" == "KONDUCTOR.md" || "$rel_dest" == ".konductor/KONDUCTOR_WORKFLOW.md" ]]
+}
 
 copy_file() {
   local src_path="$1"
@@ -98,12 +114,16 @@ copy_file() {
   dest_dir="$(dirname "$dest_path")"
   mkdir -p "$dest_dir"
 
-  if [[ -e "$dest_path" && "$FORCE" -ne 1 ]]; then
+  if [[ -e "$dest_path" && "$FORCE" -ne 1 ]] && ! should_replace_on_upgrade "$rel_dest"; then
     echo "[skip] $rel_dest already exists"
     return
   fi
 
-  echo "[copy] $src_path -> $rel_dest"
+  if [[ -e "$dest_path" && "$FORCE" -ne 1 ]] && should_replace_on_upgrade "$rel_dest"; then
+    echo "[replace] $src_path -> $rel_dest"
+  else
+    echo "[copy] $src_path -> $rel_dest"
+  fi
   cp "$src_full_path" "$dest_path"
 }
 
@@ -112,14 +132,6 @@ for mapping in "${FILE_MAPPINGS[@]}"; do
   dest_path="${mapping#*:}"
   copy_file "$src_path" "$dest_path"
 done
-
-FRAMEWORK_VERSION="$(cat "$PACKAGE_ROOT/VERSION")"
-VERSION_FILE="$TARGET_DIR/.konductor/KONDUCTOR_VERSION.json"
-
-if [[ -e "$VERSION_FILE" ]]; then
-  sed -i.bak "s/INSTALL_TIME_UTC/$(date -u +"%Y-%m-%dT%H:%M:%SZ")/g" "$VERSION_FILE" || true
-  rm -f "${VERSION_FILE}.bak" || true
-fi
 
 echo
 echo "Konductor files installed into: $TARGET_DIR"
@@ -133,4 +145,4 @@ echo "  6. Use .konductor/memory/KONDUCTOR_ADR_HISTORY.md for critical architect
 echo "  7. First-time setup: copy & paste this into your AI assistant:"
 echo "     \"Review this repository and reorganize project documentation into the Konductor workflow documentation format. Move all project documentation except README.md and KONDUCTOR.md into docs/, preserve durable project knowledge, consolidate long-term context into .konductor/memory/KONDUCTOR_MEMORY.md, and update the Konductor files to reflect the actual repository.\""
 echo
-echo "Installed framework version: $FRAMEWORK_VERSION"
+echo "Installed framework version: $FRAMEWORK_VERSION (embedded in KONDUCTOR.md)"

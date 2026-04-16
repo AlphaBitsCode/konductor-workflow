@@ -210,3 +210,10 @@ We believe in giving credit where it is due. Some of the core concepts we used t
 - **Second Brains "Conductor" Node (March 2024)**
   The conceptual predecessor to this framework. Originally implemented in Node-RED, the "conductor" served as a critical orchestration node for routing flows and managing agents across our entire enterprise architecture.
   *Reference:* [AlphaBitsCode/second.brains on GitHub](https://github.com/AlphaBitsCode/second.brains)
+
+## Recent Changes
+
+- `0.1.32`: Upgrades now replace `KONDUCTOR.md` and `.konductor/KONDUCTOR_WORKFLOW.md` from the framework package.
+- `0.1.32`: Installer upgrade logic simplified; `npm version` hook now force-adds tracked contract files safely.
+- `0.1.31`: Release verification added before publish; package now includes installer `.gitignore`; install guidance refined.
+- `0.1.31`: Framework version moved into a minimal `<framework_version>` tag inside `KONDUCTOR.md`.

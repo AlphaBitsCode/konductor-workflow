@@ -4,32 +4,44 @@ const { execFileSync } = require("child_process");
 
 const repoRoot = path.resolve(__dirname, "..");
 const packageJsonPath = path.join(repoRoot, "package.json");
-const versionPath = path.join(repoRoot, "VERSION");
-const blueprintVersionPath = path.join(
-  repoRoot,
-  "blueprints",
-  "KONDUCTOR_VERSION.json",
-);
+const rootContractPath = path.join(repoRoot, "KONDUCTOR.md");
+const blueprintContractPath = path.join(repoRoot, "blueprints", "KONDUCTOR.md");
 
 function fail(message) {
   console.error(message);
   process.exit(1);
 }
 
+function readFrameworkVersion(contractPath) {
+  const content = fs.readFileSync(contractPath, "utf8");
+  const match = content.match(/<framework_version>([^<]+)<\/framework_version>/);
+  if (!match) {
+    fail(`Missing <framework_version> tag in ${path.relative(repoRoot, contractPath)}`);
+  }
+  return match[1].trim();
+}
+
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
-const rootVersion = fs.readFileSync(versionPath, "utf8").trim();
-const blueprintVersion = JSON.parse(
-  fs.readFileSync(blueprintVersionPath, "utf8"),
-).installed_version;
+const rootVersion = readFrameworkVersion(rootContractPath);
+const blueprintVersion = readFrameworkVersion(blueprintContractPath);
 
 if (packageJson.version !== rootVersion || packageJson.version !== blueprintVersion) {
   fail(
-    `Version mismatch: package.json=${packageJson.version}, VERSION=${rootVersion}, blueprints/KONDUCTOR_VERSION.json=${blueprintVersion}`,
+    `Version mismatch: package.json=${packageJson.version}, KONDUCTOR.md=${rootVersion}, blueprints/KONDUCTOR.md=${blueprintVersion}`,
   );
 }
 
-if (!Array.isArray(packageJson.files) || !packageJson.files.includes("blueprints/.gitignore")) {
+if (
+  !Array.isArray(packageJson.files) ||
+  !packageJson.files.includes("blueprints/.gitignore")
+) {
   fail('package.json files list must include "blueprints/.gitignore"');
+}
+
+for (const forbiddenPath of ["VERSION", "blueprints/KONDUCTOR_VERSION.json"]) {
+  if (packageJson.files.includes(forbiddenPath)) {
+    fail(`package.json files list must not include "${forbiddenPath}"`);
+  }
 }
 
 const cliVersion = execFileSync(
