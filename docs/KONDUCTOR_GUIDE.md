@@ -28,35 +28,35 @@ Here is the master list of commands and workflows you should use natively in you
 
 ### 1. Starting a New Day (Or Changing Tasks)
 When you sit down to code or start a fresh AI chat window, re-sync the AI's short-term memory immediately:
-> *"Where are we? What should we do next? Read `@KONDUCTOR.md` and `@docs/CHECK_IN.md`"*
+> *"Where are we? What should we do next? @KONDUCTOR.md"*
 
 ### 2. Multi-Step Execution (Boss Mode)
 Don't micromanage the AI. Tell it what you want, point it to the contract, and let it execute step-by-step.
-> *"Investigate this database timeout error, apply a minimal fix, update the test suite, and check-in your work to `@docs/CHECK_IN.md`. Ensure you read `@KONDUCTOR.md` before starting."*
+> *"Investigate this database timeout error, apply a minimal fix, update the test suite, and check-in your work. @KONDUCTOR.md"*
 
 ### 3. Teaching the AI a Permanent Lesson
 Instead of correcting the AI over and over across multiple chats, write the correction into its permanent memory.
-> *"You used the wrong padding class. We use standard CSS, not Tailwind. Add a strict rule against using Tailwind anti-patterns to `.konductor/memory/KONDUCTOR_MEMORY.md` so you never repeat this error."*
+> *"You used the wrong padding class. We use standard CSS, not Tailwind. Add a strict rule against using Tailwind anti-patterns to our memory so you never repeat this error. @KONDUCTOR.md"*
 
 ### 4. Handling Big Architectural Shifts
 Decided to switch from Zustand to Redux? Don't let the AI guess.
-> *"We are switching our state manager. Write a quick Architecture Decision Record in `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` explaining why."*
+> *"We are switching our state manager. Write a quick Architecture Decision Record explaining why. @KONDUCTOR.md"*
 
 ### 5. Initial Setup / Onboarding a Repo
 If you just installed Konductor into an existing project, run this prompt to let the AI organize your repository:
-> *"Read `@KONDUCTOR.md` and refactor, compact all existing documentation to match the current progress and decisions made before. Tell me where we are at and what our critical tech debts are."*
+> *"Read `@KONDUCTOR.md` and refactor, compact all existing documentation to match the current progress and decisions made before. Update our custom skills and workflows. Tell me where we are at and what our critical tech debts are."*
 
 ### 6. Markdown-Driven Execution
 Force the AI to plan and record its roadmap to disk **before** touching application code.
-> *"Write down an execution plan for the auth feature into `docs/CHECK_IN.md`. Wait for my approval before you write any code."*
+> *"Write down an execution plan for the auth feature. Wait for my approval before you write any code. @KONDUCTOR.md"*
 
 ### 7. The `/compact` Command (Keep Context Lean)
 To keep the AI context lean and make sessions run significantly faster without losing historical knowledge, you should regularly compress the project's documentation. This is the preferred way to "clean up" your AI's token usage every now and then after a long sprint.
-> *"/compact - Read `@KONDUCTOR.md`, then review `@docs/CHECK_IN.md`. Archive all completed tasks into `.konductor/memory/KONDUCTOR_MEMORY.md`, delete stale notes, and summarize the current active goals to be as short and lean as possible."*
+> *"/compact - Read `@KONDUCTOR.md`. Archive all completed tasks, delete stale notes, and summarize the current active goals to be as short and lean as possible."*
 
 ### 8. Creating & Updating Custom Skills
 Over time, your project will develop highly repetitive tasks (like scaffolding a specific component architecture, or deploying a database change). Rather than re-typing these complex instructions, have the AI encode them as "Project Skills."
-> *"We create new React components constantly. Create a new custom skill in `@docs/PROJECT_SKILLS_WORKFLOW.md` detailing the exact 4 steps needed to generate, style, and test a component following our strict design system, so you can do it automatically next time I ask."*
+> *"We create new React components constantly. Create a new custom skill detailing the exact 4 steps needed to generate, style, and test a component following our strict design system, so you can do it automatically next time I ask. @KONDUCTOR.md"*
 
 ---
 
