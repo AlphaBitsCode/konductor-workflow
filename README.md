@@ -10,7 +10,7 @@ Konductor is a document-based **AI Orchestration Workflow** that manages all you
 It is 100% document-based set of guidelines and rules, no-code, **Markdown format**, and **AI-provider agnostic** it is to be embedded as part of your codebase and evolve with your project. It is designed to be context-efficient, self-updating. It works with all IDEs and modern-ish JS/TS/Python/PHP/ Go/Rust/Java/C#/C/C++ languages, framework, and tools!
 
 #### In AI Agent terms
-Konductor is an AI Boss that AI Agents need. The framework guideline and instructions will guide AI agents through the development process, and make sure they are always on the right track. It is the best boss you will ever have, because it is always there for you, and it never forgets anything!
+Konductor is an AI Boss for AI Agents. The framework guideline and instructions will guide AI agents through the development process, with behavior layer to make sure they are always on the right track. Konductor boss always available in codebase as structured markdown-files, and it remembers all historical decisions made!
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/AlphaBitsCode/konductor-workflow/main/blueprints/docs/framework-blueprint.svg" alt="Konductor Framework Architecture Blueprint" width="100%">
@@ -165,15 +165,6 @@ We won't bury the workflow in extra tooling. The current baseline is plain Markd
 - **Stop Repeating Yourself:** Your AI auto-discovers, documents, learns your rules and history once, stores them locally, and applies them forever. It evolves over time too.
 - **Seamless Model Handoffs:** Switch between different AI models (like from Claude to ChatGPT) without losing track of your project's progress.
 - **100% Local & Offline:** No cloud subscriptions. Your AI's memory is plain Markdown stored safely inside your Git repository.
-
-## Framework Enhancements
-
-- **Behavior Layer Defaults**: Makes agent execution more reliable with explicit rules for assumption discipline, simplicity-first changes, surgical diffs, and verification-first execution.
-- **Example-Driven Guardrails**: Ships `docs/AGENT_BEHAVIOR.md` so adopting repos have a compact anti-pattern reference instead of relying on vague coding-style advice.
-- **Strict CI Governance**: Mandates headless CLI testing (e.g., Playwright) over internal browsers, enforces `gh` CLI for logs, checks Node24 compliance, and requires >90% test coverage with parallel builds.
-- **"Konductor" Communication**: Enforces a highly compressed, token-saving communication policy (dropping filler, keeping technical exactness) to optimize LLM context window limits during long tasks.
-- **Automated Fleet Propagation**: Includes a cross-repo `propagate-rules.ts` utility to instantly sync governance mandates across all adopting microservices.
-- **Markdown-Native State**: Entire intelligence map is compacted to just `KONDUCTOR.md` and `README.md` at the repo root, with heavy memory matrices, roadmaps, and ADR ledgers stored safely out of the way in `.konductor/`.
 
 ## Behavior Layer
 
