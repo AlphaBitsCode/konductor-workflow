@@ -54,6 +54,10 @@ Force the AI to plan and record its roadmap to disk **before** touching applicat
 To keep the AI context lean and make sessions run significantly faster without losing historical knowledge, you should regularly compress the project's documentation. This is the preferred way to "clean up" your AI's token usage every now and then after a long sprint.
 > *"/compact - Read `@KONDUCTOR.md`, then review `@docs/CHECK_IN.md`. Archive all completed tasks into `.konductor/memory/KONDUCTOR_MEMORY.md`, delete stale notes, and summarize the current active goals to be as short and lean as possible."*
 
+### 8. Creating & Updating Custom Skills
+Over time, your project will develop highly repetitive tasks (like scaffolding a specific component architecture, or deploying a database change). Rather than re-typing these complex instructions, have the AI encode them as "Project Skills."
+> *"We create new React components constantly. Create a new custom skill in `@docs/PROJECT_SKILLS_WORKFLOW.md` detailing the exact 4 steps needed to generate, style, and test a component following our strict design system, so you can do it automatically next time I ask."*
+
 ---
 
 ## 3. Demystifying The Memory Files
