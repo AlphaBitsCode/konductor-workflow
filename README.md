@@ -154,6 +154,8 @@ Later on we standardize it across our dozen of large ERP projects, legacy and gr
 
 We believe that this will survive the AI hype cycle and will be a standard practice in the future of software development. As our tools and *your* tools evolves, The Konductor grows and learn with you.
 
+Read the full backstory: [Why we built Konductor Workflow — the AI agent framework we made for ourselves](https://alphabits.team/news/blog/konductor-workflow-release-the-ai-agent-framework-we-built-for-ourselves?utm_source=readme&utm_medium=link)
+
 ## What enabled this *magical* technology in 2026?
 
 Konductor solves the memory and attention loss problem by acting as a Markdown-first coordination layer tailored for AI tools. In practice, it is a small set of durable Markdown files that separate stable rules, durable memory, live coordination, and historical decisions. We found out that regardless of the size and complexity of your spaghetti codebase, it works well as long as you are disciplined enough to maintain the documentation. It's all human principles really.
