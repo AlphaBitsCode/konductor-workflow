@@ -215,6 +215,10 @@ We believe in giving credit where it is due. Some of the core concepts we used t
   A critical influence on our workflow structures to optimize LLM interactions, dramatically reducing token bloat without sacrificing necessary context.
   *Reference:* [JuliusBrussee/caveman on GitHub](https://github.com/JuliusBrussee/caveman)
 
+- **Behavior Guardrail Patterns for Coding Agents**
+  Helped sharpen Konductor's explicit behavior layer around thinking before coding, simplicity-first execution, surgical diffs, and example-driven anti-pattern teaching.
+  *Reference:* [forrestchang/andrej-karpathy-skills on GitHub](https://github.com/forrestchang/andrej-karpathy-skills)
+
 - **Verifiable Memory Architectures**
   Highlights the critical necessity of maintaining secure, verifiable, and transparent memory architectures for AI agents, as discussed in recent industry events.
   *Reference:* [Claude Code leak implications](https://www.google.com/search?q=claude+code+leak+implication)

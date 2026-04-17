@@ -43,3 +43,4 @@ blueprints/memory/short-term/
 # Root repo files that are not part of published template
 /KONDUCTOR.md
 /.konductor/
+docs/
