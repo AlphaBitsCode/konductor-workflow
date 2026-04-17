@@ -99,7 +99,7 @@ mkdir -p "$TARGET_DIR"
 
 should_replace_on_upgrade() {
   local rel_dest="$1"
-  [[ "$rel_dest" == "KONDUCTOR.md" || "$rel_dest" == ".konductor/KONDUCTOR_WORKFLOW.md" ]]
+  [[ "$rel_dest" == "KONDUCTOR.md" || "$rel_dest" == ".konductor/KONDUCTOR_WORKFLOW.md" || "$rel_dest" == "docs/KONDUCTOR_GUIDE.md" ]]
 }
 
 copy_file() {
@@ -138,6 +138,7 @@ done
 
 echo
 echo "Konductor files installed successfully into: $TARGET_DIR"
+echo "(Note: Core rules in KONDUCTOR.md, KONDUCTOR_WORKFLOW.md, and KONDUCTOR_GUIDE.md are overwritten on upgrade.)"
 echo 
 echo "To initialize or update your project, copy & paste this prompt into your AI assistant:"
 echo "----------------------------------------------------------------------------------------"
@@ -145,3 +146,5 @@ echo "I have just installed or updated the Konductor framework for this reposito
 echo "----------------------------------------------------------------------------------------"
 echo
 echo "Installed framework version: $FRAMEWORK_VERSION (embedded in KONDUCTOR.md)"
+echo "Follow updates at alphabits.team/news"
+

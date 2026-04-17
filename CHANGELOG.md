@@ -2,6 +2,19 @@
 
 All notable changes to Konductor Workflow should be recorded in this file.
 
+## [0.2.10] - 2026-04-17
+
+### Added
+
+- Compacted `KONDUCTOR.md` framework rules: drastically densified 18 rules down to 7 structured, dense rules for optimal token usage and agent-retention.
+- Added a concluding instruction to the terminal output directing developers and agents to follow updates at `alphabits.team/news`.
+
+### Changed
+
+- Updates via `npx konductor-workflow` now forcibly overwrite `docs/KONDUCTOR_GUIDE.md` so that improvements to the human-oriented baseline guide are successfully delivered.
+- Added explicit visual note to the end of the update execution script that lists exactly which local framework files are overwritten (`KONDUCTOR.md`, `KONDUCTOR_WORKFLOW.md`, and `KONDUCTOR_GUIDE.md`).
+- Removed the strict requirement for `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24` in GitHub Action checks.
+
 ## [0.2.4] - 2026-04-17
 
 ### Added
