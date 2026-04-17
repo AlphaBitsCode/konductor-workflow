@@ -1,7 +1,7 @@
 # Workflow
 
 <!-- Machine contract — parsed by agents on every reference_loop read -->
-<konductor_workflow version="0.2.5">
+<konductor_workflow version="0.2.6">
 
   <reference_loop>
     1. Read `KONDUCTOR.md`, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`, `.konductor/memory/KONDUCTOR_MEMORY.md`, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`.
