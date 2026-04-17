@@ -12,7 +12,7 @@ In regular AI chats, the AI forgets the project's rules, architecture, and curre
 By putting `@KONDUCTOR.md` at the end of your prompt, you instantly inject the AI with the project's critical "Memory Map," rules, and context.
 
 **How to use it:**
-_Always_ tag `@KONDUCTOR.md` in your main requests. It's tiny, costs ~100 tokens, and forces architectural alignment.
+_Always_ tag `@KONDUCTOR.md` in your main requests. It's tiny fraction of the overall context, and forces architectural alignment.
 
 > ❌ **Bad:** "Add a new endpoint for user login."
 > *(The AI guesses your DB provider, invents generic logic, breaks your architecture.)*
