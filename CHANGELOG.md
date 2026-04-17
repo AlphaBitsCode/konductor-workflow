@@ -2,6 +2,16 @@
 
 All notable changes to Konductor Workflow should be recorded in this file.
 
+## [0.2.1] - 2026-04-17
+
+### Added
+
+- Made the framework architecture blueprint logo clickable to the open-source announcement.
+
+### Changed
+
+- Optimized the blueprint SVG bundle size by compressing and resizing the embedded logo Base64 payload, and added `framework-blueprint.svg` to the npm published files.
+
 ## [0.2.0] - 2026-04-17
 
 ### Added

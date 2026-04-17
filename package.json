@@ -23,6 +23,7 @@
     "blueprints/KONDUCTOR_WORKFLOW.md",
     "blueprints/docs/AGENT_BEHAVIOR.md",
     "blueprints/docs/CHECK_IN.md",
+    "blueprints/docs/framework-blueprint.svg",
     "blueprints/memory/KONDUCTOR_ADR_HISTORY.md",
     "blueprints/memory/KONDUCTOR_MEMORY.md",
     "blueprints/memory/KONDUCTOR_VISION_ROADMAP.md",
