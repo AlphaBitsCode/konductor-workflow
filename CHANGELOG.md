@@ -2,6 +2,24 @@
 
 All notable changes to Konductor Workflow should be recorded in this file.
 
+## [0.2.4] - 2026-04-17
+
+### Added
+
+- Shipped \`blueprints/docs/PROJECT_SKILLS_WORKFLOW.md\` as an explicit placeholder for custom slash commands and project-specific skills initialized upon adoption.
+- Extracted and expanded the core "Power Tips" into a full-fledged beginner guide shipped as \`blueprints/docs/KONDUCTOR_GUIDE.md\`, complete with a new \`/compact\` CLI context management standard.
+
+### Changed
+
+- Moved \`blueprints/docs/AGENT_BEHAVIOR.md\` into the \`blueprints/memory\` directory to strictly follow the memory paradigm, and matched references in the installer, README, and installer script.
+- Synchronized version tagging across all files, automatically updating \`<konductor_workflow version="...">\` so that it does not drift during releases.
+
+## [0.2.3] - 2026-04-17
+
+### Fixed
+
+- Resolved version inconsistency issues within \`KONDUCTOR_WORKFLOW.md\` where the version XML component failed to update correctly during bumping.
+
 ## [0.2.2] - 2026-04-17
 
 ### Changed

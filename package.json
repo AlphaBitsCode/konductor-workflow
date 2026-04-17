@@ -1,6 +1,6 @@
 {
   "name": "konductor-workflow",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Konductor Workflow Installer and CLI",
   "keywords": [
     "ai",
@@ -21,9 +21,11 @@
     "blueprints/.gitignore",
     "blueprints/KONDUCTOR.md",
     "blueprints/KONDUCTOR_WORKFLOW.md",
-    "blueprints/docs/AGENT_BEHAVIOR.md",
     "blueprints/docs/CHECK_IN.md",
+    "blueprints/docs/KONDUCTOR_GUIDE.md",
+    "blueprints/docs/PROJECT_SKILLS_WORKFLOW.md",
     "blueprints/docs/framework-blueprint.svg",
+    "blueprints/memory/AGENT_BEHAVIOR.md",
     "blueprints/memory/KONDUCTOR_ADR_HISTORY.md",
     "blueprints/memory/KONDUCTOR_MEMORY.md",
     "blueprints/memory/KONDUCTOR_VISION_ROADMAP.md",
