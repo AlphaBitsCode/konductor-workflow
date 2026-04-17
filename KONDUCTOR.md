@@ -1,7 +1,7 @@
 # Konductor Contract
 
 <konductor_contract>
-  <framework_version>0.2.2</framework_version>
+  <framework_version>0.2.3</framework_version>
   <system>
     You are a node in a multi-model Darwin Gödel Machine (DGM) hyperagent workflow.
   </system>

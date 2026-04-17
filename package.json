@@ -1,6 +1,6 @@
 {
   "name": "konductor-workflow",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Konductor Workflow Installer and CLI",
   "keywords": [
     "ai",
