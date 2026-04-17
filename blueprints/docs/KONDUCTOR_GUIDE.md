@@ -44,7 +44,7 @@ Decided to switch from Zustand to Redux? Don't let the AI guess.
 
 ### 5. Initial Setup / Onboarding a Repo
 If you just installed Konductor into an existing project, run this prompt to let the AI organize your repository:
-> *"Read `@KONDUCTOR.md` and refactor, compact all existing documentation to match the current progress and decisions made before. Tell me where we are at and what our critical tech debts are."*
+> *"Read `@KONDUCTOR.md` and refactor, compact all existing documentation to match the current progress and decisions made before. Update our custom skills and workflows in `PROJECT_SKILLS_WORKFLOW.md`. Tell me where we are at and what our critical tech debts are."*
 
 ### 6. Markdown-Driven Execution
 Force the AI to plan and record its roadmap to disk **before** touching application code.

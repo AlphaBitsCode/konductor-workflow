@@ -148,6 +148,6 @@ echo "  6. Review .konductor/memory/KONDUCTOR_MEMORY.md"
 echo "  7. Use .konductor/memory/KONDUCTOR_MEMORY.md for long-term memory"
 echo "  8. Use .konductor/memory/KONDUCTOR_ADR_HISTORY.md for critical architectural decisions"
 echo "  9. First-time setup: copy & paste this into your AI assistant:"
-echo "     \"Review this repository and reorganize project documentation into the Konductor workflow documentation format. Move all project documentation except README.md and KONDUCTOR.md into docs/, preserve durable project knowledge, consolidate long-term context into .konductor/memory/KONDUCTOR_MEMORY.md, and update the Konductor files to reflect the actual repository.\""
+echo "     \"Review this repository and reorganize project documentation into the Konductor workflow documentation format. Move all project documentation except README.md and KONDUCTOR.md into docs/, preserve durable project knowledge, consolidate long-term context into .konductor/memory/KONDUCTOR_MEMORY.md, update the placeholder custom skills and workflows in docs/PROJECT_SKILLS_WORKFLOW.md for my specific tasks, and update the Konductor files to reflect the actual repository.\""
 echo
 echo "Installed framework version: $FRAMEWORK_VERSION (embedded in KONDUCTOR.md)"
