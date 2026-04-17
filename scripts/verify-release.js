@@ -6,6 +6,7 @@ const repoRoot = path.resolve(__dirname, "..");
 const packageJsonPath = path.join(repoRoot, "package.json");
 const rootContractPath = path.join(repoRoot, "KONDUCTOR.md");
 const blueprintContractPath = path.join(repoRoot, "blueprints", "KONDUCTOR.md");
+const workflowPath = path.join(repoRoot, "blueprints", "KONDUCTOR_WORKFLOW.md");
 
 function fail(message) {
   console.error(message);
@@ -21,13 +22,23 @@ function readFrameworkVersion(contractPath) {
   return match[1].trim();
 }
 
+function readWorkflowVersion(workflowPath) {
+  const content = fs.readFileSync(workflowPath, "utf8");
+  const match = content.match(/<konductor_workflow version="([^"]+)">/);
+  if (!match) {
+    fail(`Missing <konductor_workflow version="..."> tag in ${path.relative(repoRoot, workflowPath)}`);
+  }
+  return match[1].trim();
+}
+
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
 const rootVersion = readFrameworkVersion(rootContractPath);
 const blueprintVersion = readFrameworkVersion(blueprintContractPath);
+const workflowVersion = readWorkflowVersion(workflowPath);
 
-if (packageJson.version !== rootVersion || packageJson.version !== blueprintVersion) {
+if (packageJson.version !== rootVersion || packageJson.version !== blueprintVersion || packageJson.version !== workflowVersion) {
   fail(
-    `Version mismatch: package.json=${packageJson.version}, KONDUCTOR.md=${rootVersion}, blueprints/KONDUCTOR.md=${blueprintVersion}`,
+    `Version mismatch: package.json=${packageJson.version}, KONDUCTOR.md=${rootVersion}, blueprints/KONDUCTOR.md=${blueprintVersion}, blueprints/KONDUCTOR_WORKFLOW.md=${workflowVersion}`,
   );
 }
 

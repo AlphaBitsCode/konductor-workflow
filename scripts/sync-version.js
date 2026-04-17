@@ -7,6 +7,7 @@ const contractPaths = [
   path.join(repoRoot, "KONDUCTOR.md"),
   path.join(repoRoot, "blueprints", "KONDUCTOR.md"),
 ];
+const workflowPath = path.join(repoRoot, "blueprints", "KONDUCTOR_WORKFLOW.md");
 
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
 const version = packageJson.version;
@@ -19,3 +20,10 @@ for (const contractPath of contractPaths) {
   );
   fs.writeFileSync(contractPath, nextContent);
 }
+
+const workflowContent = fs.readFileSync(workflowPath, "utf8");
+const nextWorkflowContent = workflowContent.replace(
+  /<konductor_workflow version="[^"]+">/,
+  `<konductor_workflow version="${version}">`
+);
+fs.writeFileSync(workflowPath, nextWorkflowContent);
