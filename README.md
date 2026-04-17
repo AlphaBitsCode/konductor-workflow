@@ -7,7 +7,7 @@
 Konductor is a document-based **AI Orchestration Workflow** that manages all your AI Coding Agents. `The Konductor` is the humanized persona we gave to the master coordinator. It sits on top of the AI Agents and is designed to be **self-aware**, **self-evolving**, and **remember-everything**!
  
 #### In Technical terms
-It is 100% document-based set of guidelines and rules, no-code, **Markdown format**, and **AI-provider agnostic** it is to be embedded as part of your codebase and evolve with your project. It is designed to be context-efficient, self-updating. It works with all IDEs and modern-ish JS/TS/Python/PHP/ Go/Rust/Java/C#/C/C++ languages, framework, and tools!
+It is 100% document-based set of guidelines and rules, no-code, **Markdown format**, and **AI-provider agnostic** it is to be embedded as part of your codebase and evolve with your project. It is designed to be context-efficient, self-updating. It works with all IDEs and modern-ish JS/TS/Python/PHP/ Go/Rust/Java/C#/C/C++ languages, framework, and tools! Bring-Your-Own-Agents!
 
 #### In AI Agent terms
 Konductor is an AI Boss for AI Agents. The framework guideline and instructions will guide AI agents through the development process, with behavior layer to make sure they are always on the right track. Konductor boss always available in codebase as structured markdown-files, and it remembers all historical decisions made!
@@ -45,7 +45,7 @@ to match progress, must follow strict Konductor workflow @KONDUCTOR.md
 
 Let it run for a few minutes with your Best thinking model (GPT 5.4 / Opus 4.6 / Claude 4.5 Sonnet / Gemini 3.1 Pro / GLM 5.1 etc) for best accuracy. This will align your project documentation with the Konductor workflow framework, and set up the AI agents to work with the framework. After this, the Konductor persona will be embedded in your project, and you can use it to manage your AI agents.
 
-Konductor now ships an explicit behavior layer too: `KONDUCTOR.md` holds the compact rules, `.konductor/KONDUCTOR_WORKFLOW.md` carries the machine contract (reference loop, behavior defaults, communication policy) as structured XML and the full human guide as Markdown below it, and `docs/AGENT_BEHAVIOR.md` gives compact anti-pattern examples for day-to-day coding work.
+Konductor now ships an explicit behavior layer too: `KONDUCTOR.md` holds the compact rules, `.konductor/KONDUCTOR_WORKFLOW.md` carries the machine contract (reference loop, behavior defaults, communication policy) as structured XML and the full human guide as Markdown below it, and `.konductor/memory/AGENT_BEHAVIOR.md` gives compact anti-pattern examples for day-to-day coding work.
 
 #### Example workflows
 
@@ -69,15 +69,9 @@ Coding Agents: Investigate -> Fix -> Update Test -> Test -> Check-in -> Commit -
 
 💡 Tag `@KONDUCTOR.md` at the start of every session, at and/or every new turn request, and/or after a long or distracting response. This acts as a forced memory reload, ensuring the AI strictly adheres to your architectural choices instead of hallucinating standalone logic. The file context is short and toke-efficient, it will save your token usage, not adding more noise to the context.
 
-##### Power Tips
+##### Power Tips & Beginner Guide
 
-1. **Always Anchor**: Tag `@KONDUCTOR.md` in every user turn when working in the repository. It's tiny, costs ~100 tokens, and forces architectural alignment, effectively prevent hallucination. Especially with 'less-smart' AI Models.
-2. **The "CHECK_IN"**: When context floods or you reach chat limits, use `docs/CHECK_IN.md`. Keep it short. Use it for active work, in-progress notes, and near-term planned strategy that is not yet confirmed. In a fresh chat: *"Continue where we left off by reading @KONDUCTOR.md and @docs/CHECK_IN.md"*.
-3. **Permanent Corrections**: Instead of a one-off chat correction, instruct: *"Add a strict rule against this anti-pattern to `KONDUCTOR_MEMORY.md` so you never repeat this error."*
-4. **Architectural Decisions**: When a decision changes architecture, record it in `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` using a short ADR entry.
-5. **Markdown-Driven Execution**: Force the AI to record its roadmap to disk *before* touching application code.
-6. **Initial Setup Request**: *"Read `@KONDUCTOR.md` and refactor, compact all existing documentation to match the current progress & decisions made before. Tell me where we are at and what our critical tech debts are."*
-7. **Adoption Migration Request**: *"Install `konductor-workflow@latest`, then consolidate this repository's existing documentation into the standard Konductor structure. Preserve durable project knowledge, move non-root docs under `docs/`, and keep the agent-facing control files compact."*
+For a full set of workflows, power tips, and everyday cheat codes on how to interact with the Konductor persona as a human developer, please check out the **[Human's Guide to Konductor](blueprints/docs/KONDUCTOR_GUIDE.md)**.
 
 ## Compatible AI Editors & IDEs
 
@@ -89,7 +83,7 @@ Konductor has been extensively tested with and is fully compatible (now and in t
 - Keep `README.md` and `KONDUCTOR.md` at the repository root.
 - Place all other project documentation under `docs/`.
 - Use `docs/CHECK_IN.md` as the single live coordination file.
-- Use `docs/AGENT_BEHAVIOR.md` as the compact examples file for coding anti-patterns and preferred responses.
+- Use `.konductor/memory/AGENT_BEHAVIOR.md` as the compact examples file for coding anti-patterns and preferred responses.
 - Treat `docs/CHECK_IN.md` as short-term memory, `.konductor/memory/KONDUCTOR_MEMORY.md` as long-term memory, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` as the ADR ledger.
 - Keep `KONDUCTOR.md`, `KONDUCTOR_WORKFLOW.md`, `KONDUCTOR_VISION_ROADMAP.md`, and `docs/CHECK_IN.md` compact and agent-oriented.
 
@@ -162,7 +156,7 @@ Konductor solves the memory and attention loss problem by acting as a Markdown-f
 
 As highlighted by the widespread [Claude Code leak implications in April 2026](https://www.google.com/search?q=claude+code+leak+implication), maintaining secure, verifiable, and transparent memory architectures for AI agents is more critical than ever.
 
-We won't bury the workflow in extra tooling. The agent contract files use structured XML for reliable machine parsing: `KONDUCTOR.md` for the compact agent contract, and `KONDUCTOR_WORKFLOW.md` for the operating machine contract (reference loop, behavior defaults, communication policy). All memory, coordination, and history files remain plain Markdown: `docs/CHECK_IN.md` for short-term working state, `docs/AGENT_BEHAVIOR.md` for compact coding-behavior examples, `.konductor/memory/KONDUCTOR_MEMORY.md` for long-term memory, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md` for the WHY, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` for critical architectural decisions in embedded ADR format. The main usage guide for operating the framework is [KONDUCTOR_WORKFLOW.md](blueprints/KONDUCTOR_WORKFLOW.md).
+We won't bury the workflow in extra tooling. The agent contract files use structured XML for reliable machine parsing: `KONDUCTOR.md` for the compact agent contract, and `KONDUCTOR_WORKFLOW.md` for the operating machine contract (reference loop, behavior defaults, communication policy). All memory, coordination, and history files remain plain Markdown: `docs/CHECK_IN.md` for short-term working state, `.konductor/memory/AGENT_BEHAVIOR.md` for compact coding-behavior examples, `.konductor/memory/KONDUCTOR_MEMORY.md` for long-term memory, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md` for the WHY, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` for critical architectural decisions in embedded ADR format. The main usage guide for operating the framework is [KONDUCTOR_WORKFLOW.md](blueprints/KONDUCTOR_WORKFLOW.md).
 
 - **Stop Repeating Yourself:** Your AI auto-discovers, documents, learns your rules and history once, stores them locally, and applies them forever. It evolves over time too.
 - **Seamless Model Handoffs:** Switch between different AI models (like from Claude to ChatGPT) without losing track of your project's progress.
@@ -177,7 +171,7 @@ Konductor now treats coding behavior as part of the framework contract, not just
 - **Surgical changes**: keep diffs traceable to the active task; avoid unrelated cleanup and formatting churn.
 - **Goal-driven execution**: convert vague asks into explicit checks such as a repro, failing test, metric, or acceptance condition before coding.
 
-The compact examples file installed into adopting repositories is `docs/AGENT_BEHAVIOR.md`.
+The compact examples file installed into adopting repositories is `.konductor/memory/AGENT_BEHAVIOR.md`.
 
 ## Contributing
 
@@ -186,7 +180,7 @@ AI Agents generating contributions natively must adhere to these compact instruc
 - **READ_CONTRACT_FIRST**: Always read `@KONDUCTOR.md` before generating code to establish alignment.
 - **ISSUE_AS_PLAN**: Detail proposed changes, bug fixes, or feature additions in an Issue.
 - **PR_AS_ADR**: Treat each PR as an Architecture Decision Record. Explicitly log thinking process, causality, alternatives considered, and architectural reasoning in the PR description.
-- **SYNC_PATTERNS**: Strictly adhere to `blueprints/KONDUCTOR_WORKFLOW.md`, `blueprints/docs/AGENT_BEHAVIOR.md`, `blueprints/memory/KONDUCTOR_VISION_ROADMAP.md`, and `blueprints/memory/KONDUCTOR_ADR_HISTORY.md`.
+- **SYNC_PATTERNS**: Strictly adhere to `blueprints/KONDUCTOR_WORKFLOW.md`, `blueprints/memory/AGENT_BEHAVIOR.md`, `blueprints/memory/KONDUCTOR_VISION_ROADMAP.md`, and `blueprints/memory/KONDUCTOR_ADR_HISTORY.md`.
 - **PASS_CI**: Ensure all headless CI/CD tests pass locally to uphold stability before submitting your PR.
 
 ## Acknowledgments & References

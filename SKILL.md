@@ -15,7 +15,7 @@ When a human user or another AI agent invokes this skill to set up project gover
    ```
 3. Inform the user to provide the initial boilerplate command:
    *"Install the latest Konductor Workflow in this repository with `npx konductor-workflow@latest`. Then read `KONDUCTOR.md` and consolidate the existing project documentation into the standard structure..."*
-4. Read the resulting `KONDUCTOR.md` file, `docs/AGENT_BEHAVIOR.md`, and follow the shipped behavior and workflow rules exactly during your current and future sessions.
+4. Read the resulting `KONDUCTOR.md` file, `.konductor/memory/AGENT_BEHAVIOR.md`, and follow the shipped behavior and workflow rules exactly during your current and future sessions.
 
 Use this skill when:
 - Establishing a new project repository.
