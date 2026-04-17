@@ -30,6 +30,13 @@ This document is the durable architectural decision ledger for the repository. U
 - Decision: Use `docs/CHECK_IN.md` as short-term memory, `.konductor/memory/KONDUCTOR_MEMORY.md` as long-term memory, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` for critical architectural decisions only.
 - Consequences: Agents get a clearer storage model, less drift between temporary and durable context, and a smaller contract surface in normal prompts.
 
+### ADR-005: Behavior Layer As First-Class Contract
+
+- Status: Accepted
+- Context: The Markdown-only architecture defined memory and workflow well, but coding behavior defaults were too implicit. Agents could still over-assume, over-engineer, or produce noisy diffs.
+- Decision: Add explicit behavior rules to `KONDUCTOR.md`, expand `KONDUCTOR_WORKFLOW.md` with operational behavior guidance, and ship `docs/AGENT_BEHAVIOR.md` as a compact anti-pattern reference.
+- Consequences: Adopters get better assumption handling, smaller diffs, and verification-first execution without adding non-Markdown runtime dependencies.
+
 ## Logging Guidance
 
 Add a short ADR entry when a decision changes architecture, durable workflow structure, or cross-repo standards future agents must obey.

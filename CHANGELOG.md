@@ -2,6 +2,18 @@
 
 All notable changes to Konductor Workflow should be recorded in this file.
 
+## [0.2.0] - 2026-04-17
+
+### Added
+
+- Explicit behavior-layer rules in `KONDUCTOR.md` and `blueprints/KONDUCTOR.md` for assumption discipline, simplicity first, surgical diffs, and verification-first execution.
+- `docs/AGENT_BEHAVIOR.md` as a compact anti-pattern and preferred-response guide, plus matching blueprint installer support.
+
+### Changed
+
+- `KONDUCTOR_WORKFLOW.md` now includes a dedicated behavior-layer section with compact execution transforms for bug fixes, refactors, and performance work.
+- README and skill guidance now describe Konductor as a Markdown-only workflow with explicit behavior guardrails, not only memory and governance.
+
 ## [0.1.32] - 2026-04-16
 
 ### Changed

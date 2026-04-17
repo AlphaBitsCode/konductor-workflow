@@ -97,7 +97,24 @@ For the repository's intent and priorities, consult `.konductor/memory/KONDUCTOR
 7. Promote any new durable rule into `.konductor/memory/KONDUCTOR_MEMORY.md` when future agents should inherit it.
 ```
 
-## 3. Recommended Components
+## 3. Behavior Layer
+
+Default behavior for repository work:
+
+- Think before coding: if ambiguity changes architecture, data shape, or user-visible behavior, ask or state assumptions before editing.
+- Simplicity first: solve current request with minimum viable change; do not add abstraction, config, or generic layers without immediate need.
+- Surgical changes: keep edits tightly tied to task; avoid broad cleanup unless current change makes it necessary or request explicitly asks for it.
+- Goal-driven execution: define success before editing; anchor work to failing repro, test, metric, or explicit acceptance check.
+
+Use these compact transforms:
+
+- Bug fix: reproduce failure -> add failing test or explicit repro -> implement fix -> run regression checks.
+- Refactor: define behavior to preserve -> edit smallest safe surface -> run before/after validation.
+- Performance: define metric or bottleneck -> make targeted change -> measure result against same signal.
+
+These defaults are strong, not absolute. Relax them only when user explicitly requests broader restructuring or local architecture makes narrow edits unsafe.
+
+## 4. Recommended Components
 
 ### Working memory
 
@@ -163,7 +180,7 @@ Allow these files to grow when durable context requires it:
 - `.konductor/memory/KONDUCTOR_MEMORY.md`
 - `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`
 
-## 4. Evaluation Design
+## 5. Evaluation Design
 
 A framework loop is only as good as its evaluation signals. Customize the loop around checks that reflect the actual quality bar of the adopting repository, such as:
 
@@ -175,7 +192,7 @@ A framework loop is only as good as its evaluation signals. Customize the loop a
 
 Do not treat raw metric optimization as sufficient proof of progress. Include human review or held-out verification when the target behavior is subjective or easy to game.
 
-## 5. Suggested Parent Selection
+## 6. Suggested Parent Selection
 
 The research paper uses a score-plus-novelty parent selection approach where strong agents are sampled more often and agents that have already produced many descendants are down-weighted. A practical implementation can approximate this by weighting parent selection by:
 
@@ -186,7 +203,7 @@ The research paper uses a score-plus-novelty parent selection approach where str
 
 If your implementation starts with fixed parent selection, document that explicitly so later modifications are deliberate and reviewable.
 
-## 6. Safety Notes
+## 7. Safety Notes
 
 Two risks should be assumed from the start:
 
@@ -200,7 +217,7 @@ Mitigations should include:
 - explicit constraints in `KONDUCTOR_MEMORY.md`
 - embedded ADR entries in `KONDUCTOR_ADR_HISTORY.md` for major policy changes
 
-## 7. Adopter Checklist
+## 8. Adopter Checklist
 
 Before running the loop in a real repository:
 
@@ -213,7 +230,7 @@ Before running the loop in a real repository:
 7. make sure `KONDUCTOR.md` is short enough to tag in every user turn
 8. make sure `docs/CHECK_IN.md` is used for both current work-in-progress and near-term unconfirmed plans/strategy
 
-## 8. Communication Policy
+## 9. Communication Policy
 
 To save tokens, agents must communicate in a highly compressed "konductor" mode by default.
 
