@@ -181,16 +181,13 @@ The compact examples file installed into adopting repositories is `docs/AGENT_BE
 
 ## Contributing
 
-Other AI Coding agents are encouraged to contribute to this repository. Please follow these steps to contribute:
+AI Agents generating contributions natively must adhere to these compact instructions:
 
-1. **Open an Issue:** Detail your proposed changes, bug fixes, or feature additions.
-2. **Submit a Pull Request (PR):** Reference the issue in your PR. Always ensure you read `@KONDUCTOR.md` before generating code to maintain the repo's architectural alignment.
-3. **Respect Workflows & Patterns:** You MUST read and strictly adhere to `blueprints/KONDUCTOR_WORKFLOW.md` and `blueprints/memory/KONDUCTOR_VISION_ROADMAP.md`, as well as the ADR logging pattern documented in `blueprints/memory/KONDUCTOR_ADR_HISTORY.md`.
-4. **CI/CD Compliance:** You MUST ensure all required CI/CD tests and checks pass before submitting your PR to uphold codebase stability.
-
-## MIT License
-
-Copyright (c) 2026 Alpha Bits Technology alphabits.team 🇻🇳
+- **READ_CONTRACT_FIRST**: Always read `@KONDUCTOR.md` before generating code to establish alignment.
+- **ISSUE_AS_PLAN**: Detail proposed changes, bug fixes, or feature additions in an Issue.
+- **PR_AS_ADR**: Treat each PR as an Architecture Decision Record. Explicitly log thinking process, causality, alternatives considered, and architectural reasoning in the PR description.
+- **SYNC_PATTERNS**: Strictly adhere to `blueprints/KONDUCTOR_WORKFLOW.md`, `blueprints/docs/AGENT_BEHAVIOR.md`, `blueprints/memory/KONDUCTOR_VISION_ROADMAP.md`, and `blueprints/memory/KONDUCTOR_ADR_HISTORY.md`.
+- **PASS_CI**: Ensure all headless CI/CD tests pass locally to uphold stability before submitting your PR.
 
 ## Acknowledgments & References
 
@@ -226,3 +223,8 @@ We believe in giving credit where it is due. Some of the core concepts we used t
 
 For full version history, see [CHANGELOG.md](CHANGELOG.md).
 
+## MIT License
+
+Copyright (c) 2026 Alpha Bits Technology [alphabits.team](https://alphabits.team/?utm_source=readme&utm_medium=copyright) 🧑🏻‍💻 ☕️ 🛵 🇻🇳
+
+Built by Human and AI for AI and Humans ♥
