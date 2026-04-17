@@ -45,7 +45,7 @@ to match progress, must follow strict Konductor workflow @KONDUCTOR.md
 
 Let it run for a few minutes with your Best thinking model (GPT 5.4 / Opus 4.6 / Claude 4.5 Sonnet / Gemini 3.1 Pro / GLM 5.1 etc) for best accuracy. This will align your project documentation with the Konductor workflow framework, and set up the AI agents to work with the framework. After this, the Konductor persona will be embedded in your project, and you can use it to manage your AI agents.
 
-Konductor now ships an explicit behavior layer too: `KONDUCTOR.md` holds the compact rules, `.konductor/KONDUCTOR_WORKFLOW.md` explains how to apply them, and `docs/AGENT_BEHAVIOR.md` gives compact anti-pattern examples for day-to-day coding work.
+Konductor now ships an explicit behavior layer too: `KONDUCTOR.md` holds the compact rules, `.konductor/KONDUCTOR_WORKFLOW.md` carries the machine contract (reference loop, behavior defaults, communication policy) as structured XML and the full human guide as Markdown below it, and `docs/AGENT_BEHAVIOR.md` gives compact anti-pattern examples for day-to-day coding work.
 
 #### Example workflows
 
@@ -160,7 +160,7 @@ Konductor solves the memory and attention loss problem by acting as a Markdown-f
 
 As highlighted by the widespread [Claude Code leak implications in April 2026](https://www.google.com/search?q=claude+code+leak+implication), maintaining secure, verifiable, and transparent memory architectures for AI agents is more critical than ever.
 
-We won't bury the workflow in extra tooling. The current baseline is plain Markdown only: `KONDUCTOR.md` for the compact contract, `docs/CHECK_IN.md` for short-term working state, `docs/AGENT_BEHAVIOR.md` for compact coding-behavior examples, `.konductor/memory/KONDUCTOR_MEMORY.md` for long-term memory, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md` for the WHY, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` for critical architectural decisions in embedded ADR format. The main usage guide for operating the framework is [KONDUCTOR_WORKFLOW.md](blueprints/KONDUCTOR_WORKFLOW.md).
+We won't bury the workflow in extra tooling. The agent contract files use structured XML for reliable machine parsing: `KONDUCTOR.md` for the compact agent contract, and `KONDUCTOR_WORKFLOW.md` for the operating machine contract (reference loop, behavior defaults, communication policy). All memory, coordination, and history files remain plain Markdown: `docs/CHECK_IN.md` for short-term working state, `docs/AGENT_BEHAVIOR.md` for compact coding-behavior examples, `.konductor/memory/KONDUCTOR_MEMORY.md` for long-term memory, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md` for the WHY, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` for critical architectural decisions in embedded ADR format. The main usage guide for operating the framework is [KONDUCTOR_WORKFLOW.md](blueprints/KONDUCTOR_WORKFLOW.md).
 
 - **Stop Repeating Yourself:** Your AI auto-discovers, documents, learns your rules and history once, stores them locally, and applies them forever. It evolves over time too.
 - **Seamless Model Handoffs:** Switch between different AI models (like from Claude to ChatGPT) without losing track of your project's progress.
@@ -222,11 +222,5 @@ We believe in giving credit where it is due. Some of the core concepts we used t
   The conceptual predecessor to this framework. Originally implemented in Node-RED, the "conductor" served as a critical orchestration node for routing flows and managing agents across our entire enterprise architecture.
   *Reference:* [AlphaBitsCode/second.brains on GitHub](https://github.com/AlphaBitsCode/second.brains)
 
-## Recent Changes
+For full version history, see [CHANGELOG.md](CHANGELOG.md).
 
-- `0.2.0`: Added first-class behavior-layer rules to `KONDUCTOR.md` and workflow docs for assumption discipline, simplicity-first execution, surgical diffs, and verification-first work.
-- `0.2.0`: Installer now ships `docs/AGENT_BEHAVIOR.md`; README and skill guidance now describe Konductor as Markdown-only workflow plus behavior guardrails.
-- `0.1.32`: Upgrades now replace `KONDUCTOR.md` and `.konductor/KONDUCTOR_WORKFLOW.md` from the framework package.
-- `0.1.32`: Installer upgrade logic simplified; `npm version` hook now force-adds tracked contract files safely.
-- `0.1.31`: Release verification added before publish; package now includes installer `.gitignore`; install guidance refined.
-- `0.1.31`: Framework version moved into a minimal `<framework_version>` tag inside `KONDUCTOR.md`.

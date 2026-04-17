@@ -1,6 +1,6 @@
 # Check-In
 
-This file is the short-term memory scratchpad for active collaboration between AI coding agents and humans in an adopting repository. It is not a permanent policy document.
+This file is the short-term memory scratchpad for active collaboration between AI coding agents and humans in this repository. It is not a permanent policy document.
 
 - Use this for live claims, progress notes, work in progress, near-term coordination, and planned but not yet confirmed tasks or strategy.
 - Keep it compact, current, and up to the hour when active work is underway.
@@ -15,16 +15,21 @@ This file is the short-term memory scratchpad for active collaboration between A
 
 | Owner | Task | Started | Status |
 | :--- | :--- | :--- | :--- |
-| — | — | — | — |
+| Agent A | Fix login redirect bug after OAuth callback | 2026-01-15 | in progress |
+| Alice | Review and merge PR #42 (rate limiting) | 2026-01-15 | blocked — waiting on staging deploy |
 
 ## Recent Progress
 
-- _No recent updates._
+- 2026-01-15: Reproduced login redirect bug on staging. Root cause: missing `redirect_uri` param in OAuth config. Fix in progress.
+- 2026-01-14: Merged payment gateway refactor. All integration tests green. Deployed to staging.
+- 2026-01-13: Added rate limiting middleware. PR #42 open for review.
 
 ## Open Questions
 
-- _No open questions._
+- Should the session timeout be 30 or 60 minutes? Waiting on product decision.
+- Is the legacy CSV import endpoint still in use? Check with Bob before deprecating.
 
 ## Planned / Unconfirmed
 
-- _No planned items._
+- Upgrade Node.js to v22 across all services (not yet scheduled).
+- Add Redis caching layer to the product search endpoint (discussed, not confirmed).

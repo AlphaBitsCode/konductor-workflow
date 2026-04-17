@@ -1,5 +1,57 @@
 # Workflow
 
+<!-- Machine contract — parsed by agents on every reference_loop read -->
+<konductor_workflow version="0.2.2">
+
+  <reference_loop>
+    1. Read `KONDUCTOR.md`, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`, `.konductor/memory/KONDUCTOR_MEMORY.md`, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`.
+    2. Inspect `docs/CHECK_IN.md` for active work and unresolved questions.
+    3. Update `docs/CHECK_IN.md` with current ongoing task before or during execution, even if work is not yet finished.
+    4. Make the change and run the relevant evaluations.
+    5. Update `docs/CHECK_IN.md` with active result, current status, and next likely move.
+    6. Record critical architectural decisions in `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`.
+    7. Promote any new durable rule into `.konductor/memory/KONDUCTOR_MEMORY.md` when future agents should inherit it.
+  </reference_loop>
+
+  <behavior_defaults>
+    <default>Think before coding: if ambiguity changes architecture, data shape, or user-visible behavior, ask or state assumptions before editing.</default>
+    <default>Simplicity first: solve current request with minimum viable change; do not add abstraction, config, or generic layers without immediate need.</default>
+    <default>Surgical changes: keep edits tightly tied to task; avoid broad cleanup unless current change makes it necessary or request explicitly asks for it.</default>
+    <default>Goal-driven execution: define success before editing; anchor work to failing repro, test, metric, or explicit acceptance check.</default>
+    <transform type="bug_fix">reproduce failure → add failing test or explicit repro → implement fix → run regression checks.</transform>
+    <transform type="refactor">define behavior to preserve → edit smallest safe surface → run before/after validation.</transform>
+    <transform type="performance">define metric or bottleneck → make targeted change → measure result against same signal.</transform>
+    <note>These defaults are strong, not absolute. Relax only when user explicitly requests broader restructuring or local architecture makes narrow edits unsafe.</note>
+  </behavior_defaults>
+
+  <communication_policy>
+    <mode name="konductor" default="true">
+      <drop>Articles (a/an/the), filler (just/really/basically), pleasantries (sure/happy to), hedging. Fragments OK.</drop>
+      <keep>Exact technical terms, unmodified code blocks, full quoted errors.</keep>
+      <pattern>[thing] [action] [reason]. [next step].</pattern>
+    </mode>
+    <suspend_mode_for>
+      <case>Security warnings or destructive operations.</case>
+      <case>Irreversible action confirmations.</case>
+      <case>Multi-step sequences where fragment order risks misinterpretation.</case>
+      <case>Writing normal code, commits, or PRs.</case>
+      <case>When human explicitly asks to clarify.</case>
+    </suspend_mode_for>
+    <compression_tactics>
+      <tactic id="1">Zero Padding: No greetings, affirmations, or sign-offs.</tactic>
+      <tactic id="2">Diff-Only Output: Show only modified functions. Omit unmodified boilerplate.</tactic>
+      <tactic id="3">Symbol Logs: Use ✅ ❌ ⚠️ ⏳ 🔍 instead of text status.</tactic>
+      <tactic id="4">No Echo: Never summarize the user's prompt. Start immediately.</tactic>
+      <tactic id="5">Standard Abbrevs: req, res, db, env, cfg, ctx, deps.</tactic>
+    </compression_tactics>
+  </communication_policy>
+
+</konductor_workflow>
+
+---
+
+<!-- Human guide — read by adopters customizing the framework -->
+
 This document is the primary reference guide for using Konductor Workflow inside an adopting repository. It defines the operating model, file responsibilities, and agent behavior expected by the framework. It is intentionally generic and should be adapted to the stack, evaluation loop, and safety requirements of the adopting project.
 
 > **Installation Note:** If you installed the package locally using `npm i konductor-workflow`, your next step is to run `npx konductor-workflow` from your repository root to initialize the Konductor persona and boilerplate documents.
@@ -85,36 +137,7 @@ The key difference from a fixed meta-agent design is that the improvement mechan
 
 For the repository's intent and priorities, consult `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`. For the execution pattern, file responsibilities, and repository-specific checks, use this workflow document as the main usage guide.
 
-## 2. Reference Loop
-
-```text
-1. Read `KONDUCTOR.md`, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`, `.konductor/memory/KONDUCTOR_MEMORY.md`, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`.
-2. Inspect `docs/CHECK_IN.md` for active work and unresolved questions.
-3. If possible, update `docs/CHECK_IN.md` with the current ongoing task before or during execution, even if the work is not yet finished or confirmed.
-4. Make the change and run the relevant evaluations.
-5. Update `docs/CHECK_IN.md` with the active result, current status, and next likely move.
-6. Record critical architectural decisions in `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`.
-7. Promote any new durable rule into `.konductor/memory/KONDUCTOR_MEMORY.md` when future agents should inherit it.
-```
-
-## 3. Behavior Layer
-
-Default behavior for repository work:
-
-- Think before coding: if ambiguity changes architecture, data shape, or user-visible behavior, ask or state assumptions before editing.
-- Simplicity first: solve current request with minimum viable change; do not add abstraction, config, or generic layers without immediate need.
-- Surgical changes: keep edits tightly tied to task; avoid broad cleanup unless current change makes it necessary or request explicitly asks for it.
-- Goal-driven execution: define success before editing; anchor work to failing repro, test, metric, or explicit acceptance check.
-
-Use these compact transforms:
-
-- Bug fix: reproduce failure -> add failing test or explicit repro -> implement fix -> run regression checks.
-- Refactor: define behavior to preserve -> edit smallest safe surface -> run before/after validation.
-- Performance: define metric or bottleneck -> make targeted change -> measure result against same signal.
-
-These defaults are strong, not absolute. Relax them only when user explicitly requests broader restructuring or local architecture makes narrow edits unsafe.
-
-## 4. Recommended Components
+## 2. Recommended Components
 
 ### Working memory
 
@@ -180,7 +203,7 @@ Allow these files to grow when durable context requires it:
 - `.konductor/memory/KONDUCTOR_MEMORY.md`
 - `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`
 
-## 5. Evaluation Design
+## 3. Evaluation Design
 
 A framework loop is only as good as its evaluation signals. Customize the loop around checks that reflect the actual quality bar of the adopting repository, such as:
 
@@ -192,7 +215,7 @@ A framework loop is only as good as its evaluation signals. Customize the loop a
 
 Do not treat raw metric optimization as sufficient proof of progress. Include human review or held-out verification when the target behavior is subjective or easy to game.
 
-## 6. Suggested Parent Selection
+## 4. Suggested Parent Selection
 
 The research paper uses a score-plus-novelty parent selection approach where strong agents are sampled more often and agents that have already produced many descendants are down-weighted. A practical implementation can approximate this by weighting parent selection by:
 
@@ -203,7 +226,7 @@ The research paper uses a score-plus-novelty parent selection approach where str
 
 If your implementation starts with fixed parent selection, document that explicitly so later modifications are deliberate and reviewable.
 
-## 7. Safety Notes
+## 5. Safety Notes
 
 Two risks should be assumed from the start:
 
@@ -217,7 +240,7 @@ Mitigations should include:
 - explicit constraints in `KONDUCTOR_MEMORY.md`
 - embedded ADR entries in `KONDUCTOR_ADR_HISTORY.md` for major policy changes
 
-## 8. Adopter Checklist
+## 6. Adopter Checklist
 
 Before running the loop in a real repository:
 
@@ -229,29 +252,3 @@ Before running the loop in a real repository:
 6. consolidate pre-existing documentation into the Konductor layout while preserving durable repo knowledge
 7. make sure `KONDUCTOR.md` is short enough to tag in every user turn
 8. make sure `docs/CHECK_IN.md` is used for both current work-in-progress and near-term unconfirmed plans/strategy
-
-## 9. Communication Policy
-
-To save tokens, agents must communicate in a highly compressed "konductor" mode by default.
-
-### Core Rules
-- **Drop**: Articles (a/an/the), filler (just/really/basically), pleasantries (sure/happy to), hedging. Fragments OK.
-- **Keep**: Exact technical terms, unmodified code blocks, full quoted errors.
-- **Pattern**: `[thing] [action] [reason]. [next step].`
-- **Example**: "Bug in auth middleware. Token expiry check use `<` not `<=`. Fix:"
-
-### Auto-Clarity Exceptions
-Drop compressed mode temporarily for:
-- Security warnings or destructive operations.
-- Irreversible action confirmations.
-- Multi-step sequences where fragment order risks misinterpretation.
-- Writing normal code, commits, or PRs.
-- When human explicitly asks to clarify.
-Resume compressed mode after clear part done.
-
-### Token Compression Tactics
-1. **Zero Padding**: No greetings, affirmations, or sign-offs.
-2. **Diff-Only Output**: Show only modified functions. Omit unmodified boilerplate.
-3. **Symbol Logs**: Use ✅, ❌, ⚠️, ⏳, 🔍 instead of text status.
-4. **No Echo**: Never summarize the user's prompt. Start immediately.
-5. **Standard Abbrevs**: Use req, res, db, env, cfg, ctx, deps.

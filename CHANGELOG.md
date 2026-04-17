@@ -2,6 +2,13 @@
 
 All notable changes to Konductor Workflow should be recorded in this file.
 
+## [0.2.2] - 2026-04-17
+
+### Changed
+
+- `KONDUCTOR_WORKFLOW.md` restructured to hybrid XML+Markdown format: machine contract sections (`reference_loop`, `behavior_defaults`, `communication_policy`) promoted to a structured `<konductor_workflow version="0.2.2">` XML block at the top for reliable agent parsing; human guide prose (framework blueprint, recommended components, evaluation design, safety notes, adopter checklist) retained as Markdown below.
+- README updated to reflect that agent contract files use structured XML while memory, coordination, and history files remain plain Markdown.
+
 ## [0.2.1] - 2026-04-17
 
 ### Added
