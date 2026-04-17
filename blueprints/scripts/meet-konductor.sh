@@ -137,17 +137,11 @@ for mapping in "${FILE_MAPPINGS[@]}"; do
 done
 
 echo
-echo "Konductor files installed into: $TARGET_DIR"
-echo "Next steps:"
-echo "  1. Review KONDUCTOR.md"
-echo "  2. Keep AGENTS.md only if you need the compatibility shim"
-echo "  3. Review .konductor/memory/KONDUCTOR_VISION_ROADMAP.md"
-echo "  4. Review .konductor/memory/AGENT_BEHAVIOR.md"
-echo "  5. (Optional) Read the docs/KONDUCTOR_GUIDE.md for cheat codes"
-echo "  6. Review .konductor/memory/KONDUCTOR_MEMORY.md"
-echo "  7. Use .konductor/memory/KONDUCTOR_MEMORY.md for long-term memory"
-echo "  8. Use .konductor/memory/KONDUCTOR_ADR_HISTORY.md for critical architectural decisions"
-echo "  9. First-time setup: copy & paste this into your AI assistant:"
-echo "     \"Review this repository and reorganize project documentation into the Konductor workflow documentation format. Move all project documentation except README.md and KONDUCTOR.md into docs/, preserve durable project knowledge, consolidate long-term context into .konductor/memory/KONDUCTOR_MEMORY.md, update the placeholder custom skills and workflows in docs/PROJECT_SKILLS_WORKFLOW.md for my specific tasks, and update the Konductor files to reflect the actual repository.\""
+echo "Konductor files installed successfully into: $TARGET_DIR"
+echo 
+echo "To initialize or update your project, copy & paste this prompt into your AI assistant:"
+echo "----------------------------------------------------------------------------------------"
+echo "I have just installed or updated the Konductor framework for this repository. Please review @KONDUCTOR.md and the latest core files. Reorganize any unstructured project documentation into docs/ and .konductor/memory/KONDUCTOR_MEMORY.md, update the scaffolding in docs/PROJECT_SKILLS_WORKFLOW.md to match our specific tasks, and give me a brief summary of our current status and tech debt so we can safely resume work."
+echo "----------------------------------------------------------------------------------------"
 echo
 echo "Installed framework version: $FRAMEWORK_VERSION (embedded in KONDUCTOR.md)"

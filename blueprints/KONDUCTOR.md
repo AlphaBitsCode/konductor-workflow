@@ -17,7 +17,7 @@
     <read_write path=".konductor/memory/KONDUCTOR_ADR_HISTORY.md" type="architectural_decisions"/>
   </memory_map>
   <first_time_instruction>
-    Copy and paste into AI assistant on first adoption pass: "Review this repository and reorganize project documentation into the Konductor workflow documentation format. Move all project documentation except README.md and KONDUCTOR.md into docs/, preserve durable project knowledge, consolidate long-term context into .konductor/memory/KONDUCTOR_MEMORY.md, update the placeholder custom skills and workflows in docs/PROJECT_SKILLS_WORKFLOW.md for my specific tasks, and update the Konductor files to reflect the actual repository."
+    Copy and paste into AI assistant on first adoption or update: "I have just installed or updated the Konductor framework for this repository. Please review @KONDUCTOR.md and the latest core files. Reorganize any unstructured project documentation into docs/ and .konductor/memory/KONDUCTOR_MEMORY.md, update the scaffolding in docs/PROJECT_SKILLS_WORKFLOW.md to match our specific tasks, and give me a brief summary of our current status and tech debt so we can safely resume work."
   </first_time_instruction>
   <rules>
     <rule priority="0">Always speak konductor to save tokens. Drop articles, filler, pleasantries. Keep technical terms exact. Fragments OK.</rule>
