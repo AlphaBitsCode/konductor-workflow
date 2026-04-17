@@ -1,0 +1,49 @@
+name: Track NPM Stats
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Runs every Monday at 00:00 UTC
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  track-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch NPM Downloads
+        id: fetch-stats
+        run: |
+          # Fetch last week's download stats from NPM API
+          RESPONSE=$(curl -s https://api.npmjs.org/downloads/point/last-week/konductor-workflow)
+          DOWNLOADS=$(echo $RESPONSE | jq '.downloads')
+          START_DATE=$(echo $RESPONSE | jq -r '.start')
+          END_DATE=$(echo $RESPONSE | jq -r '.end')
+          
+          echo "downloads=$DOWNLOADS" >> $GITHUB_OUTPUT
+          echo "start_date=$START_DATE" >> $GITHUB_OUTPUT
+          echo "end_date=$END_DATE" >> $GITHUB_OUTPUT
+          
+          echo "Fetched $DOWNLOADS downloads for period $START_DATE to $END_DATE"
+
+      - name: Append to CHECK_IN.md
+        run: |
+          STATS_LINE="- $(date +'%Y-%m-%d'): 📈 **NPM Stats**: Konductor-workflow had **${{ steps.fetch-stats.outputs.downloads }} downloads** between ${{ steps.fetch-stats.outputs.start_date }} and ${{ steps.fetch-stats.outputs.end_date }}."
+          
+          # Check if docs/CHECK_IN.md exists, if not create it
+          mkdir -p docs
+          touch docs/CHECK_IN.md
+          
+          # Append to the top of the file underneath the header or just append to end
+          # We'll append it to the end of the file for simplicity
+          echo "$STATS_LINE" >> docs/CHECK_IN.md
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(metrics): update weekly npm download stats"
+          file_pattern: "docs/CHECK_IN.md"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"

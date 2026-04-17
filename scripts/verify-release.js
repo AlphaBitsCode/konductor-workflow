@@ -44,9 +44,9 @@ if (packageJson.version !== rootVersion || packageJson.version !== blueprintVers
 
 if (
   !Array.isArray(packageJson.files) ||
-  !packageJson.files.includes("blueprints/.gitignore")
+  !packageJson.files.includes("blueprints/gitignore")
 ) {
-  fail('package.json files list must include "blueprints/.gitignore"');
+  fail('package.json files list must include "blueprints/gitignore"');
 }
 
 for (const forbiddenPath of ["VERSION", "blueprints/KONDUCTOR_VERSION.json"]) {
@@ -75,7 +75,7 @@ const packedFiles = new Set(
 );
 
 for (const requiredLine of [
-  "blueprints/.gitignore",
+  "blueprints/gitignore",
   "blueprints/KONDUCTOR.md",
   "blueprints/scripts/meet-konductor.sh",
 ]) {

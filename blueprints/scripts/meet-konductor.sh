@@ -92,7 +92,7 @@ FILE_MAPPINGS=(
   "blueprints/KONDUCTOR_WORKFLOW.md:.konductor/KONDUCTOR_WORKFLOW.md"
   "blueprints/memory/KONDUCTOR_MEMORY.md:.konductor/memory/KONDUCTOR_MEMORY.md"
   "blueprints/memory/KONDUCTOR_ADR_HISTORY.md:.konductor/memory/KONDUCTOR_ADR_HISTORY.md"
-  "blueprints/.gitignore:.konductor/.gitignore"
+  "blueprints/gitignore:.konductor/.gitignore"
 )
 
 mkdir -p "$TARGET_DIR"

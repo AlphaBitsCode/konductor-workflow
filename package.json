@@ -18,7 +18,7 @@
   },
   "files": [
     "blueprints/AGENTS.md",
-    "blueprints/.gitignore",
+    "blueprints/gitignore",
     "blueprints/KONDUCTOR.md",
     "blueprints/KONDUCTOR_WORKFLOW.md",
     "blueprints/docs/CHECK_IN.md",
