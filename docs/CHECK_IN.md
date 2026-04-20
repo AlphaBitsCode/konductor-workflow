@@ -34,3 +34,4 @@ This file is the short-term memory scratchpad for active collaboration between A
 ## Planned / Unconfirmed
 
 - Watch adopter repos for behavior-layer friction before adding more examples or tightening defaults further.
+- 2026-04-20: 📈 **NPM Stats**: Konductor-workflow had **1749 downloads** between 2026-04-12 and 2026-04-18.
