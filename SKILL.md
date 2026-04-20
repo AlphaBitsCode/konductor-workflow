@@ -31,16 +31,18 @@ Use this skill for repo-local Konductor setup, refresh, and history review.
 ## /k-compact
 
 1. Read `KONDUCTOR.md`, `docs/CHECK_IN.md`, `docs/PROJECT_SKILLS_WORKFLOW.md`, `.konductor/memory/KONDUCTOR_MEMORY.md`, `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`, and `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`.
-2. Trim `docs/CHECK_IN.md` down to active work only.
-3. Move completed or durable facts into the appropriate memory or ADR files when they matter for future work.
-4. Return the smallest useful status summary: current goal, remaining blockers, and next action.
+2. Classify every check-in item as active, blocked, completed, stale, or durable.
+3. Prune completed items from `docs/CHECK_IN.md` before anything else. Move any durable facts from those items into the appropriate memory or ADR file, then delete the completed check-in entries from the live file.
+4. Retain only active or blocked work in `docs/CHECK_IN.md`; drop stale notes that no longer change the next action.
+5. Return the smallest useful status summary: current goal, remaining blockers, and next action.
 
 ## /k-checkin
 
 1. Read `KONDUCTOR.md`, `docs/CHECK_IN.md`, and the three durable memory files.
-2. Refresh `docs/CHECK_IN.md` with the current status, active goals, blockers, and handoff point.
-3. Keep the update concise and time-local.
-4. Return a compact check-in summary for the human.
+2. Classify each live-state item as active, blocked, completed, stale, or durable.
+3. Prune completed items from `docs/CHECK_IN.md` before rewriting the live file. Move any durable facts into the appropriate memory or ADR file, then drop stale notes that no longer affect the next step.
+4. Refresh `docs/CHECK_IN.md` with only the current status, active goals, blockers, and handoff point.
+5. Return a compact check-in summary for the human.
 
 ## /k-history
 

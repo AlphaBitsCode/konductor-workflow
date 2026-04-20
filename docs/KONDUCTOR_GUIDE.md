@@ -52,11 +52,11 @@ Force the AI to plan and record its roadmap to disk **before** touching applicat
 
 ### 7. The `/k-compact` Command (Keep Context Lean)
 To keep the AI context lean and make sessions run significantly faster without losing historical knowledge, compress the project's active working state on a regular basis.
-> *"/k-compact - Read `@KONDUCTOR.md` and `docs/CHECK_IN.md`. Archive completed work, trim stale notes, and summarize the current active goals to be as short and lean as possible."*
+> *"/k-compact - Read `@KONDUCTOR.md` and `docs/CHECK_IN.md`. Classify check-in items, prune completed entries first, move durable facts into memory when needed, trim stale notes, and summarize the current active goals to be as short and lean as possible."*
 
 ### 8. The `/k-checkin` Command (Refresh the Live State)
 Use this command when a concise status snapshot needs to be written back into the live check-in file before continuing work.
-> *"/k-checkin - Read `@KONDUCTOR.md`, refresh `docs/CHECK_IN.md` with the current status, active goals, blockers, and handoff point, then return a compact check-in summary."*
+> *"/k-checkin - Read `@KONDUCTOR.md` and `docs/CHECK_IN.md`. Classify live items, prune completed entries before rewriting the file, move durable facts into memory when needed, and refresh `docs/CHECK_IN.md` with the current status, active goals, blockers, and handoff point."*
 
 ### 9. Creating & Updating Custom Skills
 Over time, your project will develop highly repetitive tasks (like scaffolding a specific component architecture, or deploying a database change). Rather than re-typing these complex instructions, have the AI encode them as "Project Skills."
@@ -67,8 +67,8 @@ Use these when you want a predictable, repo-local shortcut instead of a free-for
 - `/k-init`: first-time repo review and concise status summary
 - `/k-update`: refresh the framework and install the skill to `.agents/skills/konductor-workflow/` with `npx konductor-workflow@latest`
 - `/k-history`: review durable memory, ADR history, roadmap, and live check-in state
-- `/k-compact`: compress the live working state, archive completed items, and keep the context lean
-- `/k-checkin`: refresh `docs/CHECK_IN.md` with the current status and handoff point
+- `/k-compact`: classify check-in items, prune completed entries first, and keep the context lean
+- `/k-checkin`: classify live items, prune completed entries first, and refresh `docs/CHECK_IN.md`
 - `SKILL.md`: universal skill source for the same workflows
 
 ---

@@ -53,8 +53,8 @@ Shorthand slash commands allow the human driving the AI to quickly execute a seq
 - **`/k-init`**: Read `@KONDUCTOR.md`, review the current project docs and core workflow files, then summarize the repository state, active goals, and major tech debt in a concise Konductor-style check-in.
 - **`/k-update`**: Run `npx konductor-workflow@latest` to refresh or reinstall the Konductor framework and install the universal skill into `.agents/skills/konductor-workflow/`.
 - **`/k-history`**: Summarize `.konductor/memory/KONDUCTOR_MEMORY.md`, `.konductor/memory/KONDUCTOR_ADR_HISTORY.md`, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md`, and `docs/CHECK_IN.md` for durable memory, history, ADRs, roadmap, and live WIP.
-- **`/k-compact`**: Read `@KONDUCTOR.md` and `docs/CHECK_IN.md`, archive completed work into durable memory when needed, trim stale notes, and return the smallest useful active-state summary.
-- **`/k-checkin`**: Refresh `docs/CHECK_IN.md` with the current status, active goals, blockers, and handoff point, then return a compact check-in summary.
+- **`/k-compact`**: Read `@KONDUCTOR.md` and `docs/CHECK_IN.md`, classify check-in items, prune completed items from the live file first, archive durable facts when needed, trim stale notes, and return the smallest useful active-state summary.
+- **`/k-checkin`**: Read `@KONDUCTOR.md` and `docs/CHECK_IN.md`, classify live items, prune completed entries before rewriting the live file, move durable facts into memory when needed, and return a compact check-in summary with the current status, active goals, blockers, and handoff point.
 
 For Codex-local use, the same workflows are also packaged as the universal repo skill source in `SKILL.md` and installed to `.agents/skills/konductor-workflow/`.
 - **`/lint`**: Run `npm run lint -- --fix`. Automatically resolve any auto-fixable formatting issues, and list any remaining manual fixes required.
