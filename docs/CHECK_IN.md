@@ -11,27 +11,6 @@ This file is the short-term memory scratchpad for active collaboration between A
 - Keep enough current context here to support self-retrospection and the next upgrade or recovery step.
 - Archive or clear stale entries when they are no longer relevant to active work.
 
-## Active Claims
+## Current Status
 
-| Owner | Task | Started | Status |
-| :--- | :--- | :--- | :--- |
-| Codex | Behavior-layer upgrade: explicit coding guardrails + shipped examples doc | 2026-04-17 | completed |
-
-## Recent Progress
-
-- 2026-04-17: Released behavior-layer upgrade in framework `0.2.0`: added explicit coding guardrails to `KONDUCTOR.md`, workflow behavior guidance, and shipped `docs/AGENT_BEHAVIOR.md`.
-- 2026-04-09: Strengthened the core `KONDUCTOR.md` contract to emphasize self-improvement, self-upgrading, and up-to-the-hour WIP documentation for retrospection and future upgrades.
-- 2026-04-09: Renamed `KONDUCTOR_HISTORY.md` to `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` in the framework standard and installer templates.
-- 2026-04-09: Clarified memory layers: `docs/CHECK_IN.md` is short-term memory, `KONDUCTOR_MEMORY.md` is long-term memory, and `KONDUCTOR_ADR_HISTORY.md` is for critical architectural decisions only.
-- 2026-04-09: Released framework baseline `0.1.9` in package/version manifests.
-- 2026-04-09: Added copy/paste AI-agent install prompt for `npx konductor-workflow@0.1.9`.
-- 2026-04-09: Added adoption rule to consolidate existing repository documentation into the standard Konductor structure while preserving durable repo knowledge.
-
-## Open Questions
-
-- None.
-
-## Planned / Unconfirmed
-
-- Watch adopter repos for behavior-layer friction before adding more examples or tightening defaults further.
-- 2026-04-20: 📈 **NPM Stats**: Konductor-workflow had **1749 downloads** between 2026-04-12 and 2026-04-18.
+No active or blocked work.

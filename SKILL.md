@@ -1,7 +1,10 @@
 ---
 name: konductor-workflow
-description: This skill should be used when the user asks to "run /k-init", "run /k-update", "run /k-history", "run /k-compact", "run /k-checkin", "refresh Konductor", "compact the current context", "check in current work", "review Konductor history", or "read KONDUCTOR.md".
+description: Use when the user runs /k-init, /k-update, /k-history, /k-compact, /k-checkin, or asks to refresh, compact, or check in with the Konductor framework.
 ---
+<!-- SOURCE FILE: This is the upstream source published to npm.
+     Adopting repositories receive a copy at .agents/skills/konductor-workflow/SKILL.md
+     via `npx konductor-workflow@latest`. Edit here; adopters get updates on /k-update. -->
 # Konductor Workflow
 
 Use this skill for repo-local Konductor setup, refresh, and history review.

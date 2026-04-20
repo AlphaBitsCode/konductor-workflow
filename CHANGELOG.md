@@ -2,6 +2,20 @@
 
 All notable changes to Konductor Workflow should be recorded in this file.
 
+## [0.2.11] - 2026-04-20
+
+### Added
+
+- Documented new `/k-compact` and `/k-checkin` commands in the framework documentation and SKILL.md.
+- Added explicit `/k-release` workflow into the `PROJECT_SKILLS_WORKFLOW.md` template for the framework repository.
+- Populated `KONDUCTOR_MEMORY.md` with real stack constraints (Node >=18, release pipeline, overwrite policy).
+
+### Changed
+
+- Tightened trigger description in `SKILL.md` to be a single concise sentence for better semantic matching.
+- Added a `<!-- SOURCE FILE -->` note in root `SKILL.md` to distinguish it from the installed `.agents/` copy.
+- Aligned k-checkin implementation with compaction rules for cleaner short-term memory management.
+
 ## [0.2.10] - 2026-04-17
 
 ### Added
