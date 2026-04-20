@@ -44,9 +44,10 @@ if (packageJson.version !== rootVersion || packageJson.version !== blueprintVers
 
 if (
   !Array.isArray(packageJson.files) ||
-  !packageJson.files.includes("blueprints/gitignore")
+  !packageJson.files.includes("blueprints/gitignore") ||
+  !packageJson.files.includes("SKILL.md")
 ) {
-  fail('package.json files list must include "blueprints/gitignore"');
+  fail('package.json files list must include "blueprints/gitignore" and "SKILL.md"');
 }
 
 for (const forbiddenPath of ["VERSION", "blueprints/KONDUCTOR_VERSION.json"]) {
@@ -78,6 +79,7 @@ for (const requiredLine of [
   "blueprints/gitignore",
   "blueprints/KONDUCTOR.md",
   "blueprints/scripts/meet-konductor.sh",
+  "SKILL.md",
 ]) {
   if (!packedFiles.has(requiredLine)) {
     fail(`npm pack --dry-run missing ${requiredLine}`);

@@ -32,17 +32,19 @@ npx konductor-workflow@latest
 
 *(Note: If you installed locally via `npm i konductor-workflow`, you should run `npx konductor-workflow` from your repository root to execute the persona initialization.)*
 
+This install path now writes the universal skill into `.agents/skills/konductor-workflow/` from `SKILL.md`.
+
 ##### First step in your IDE/Coding Agent
 
 Copy paste this into your favourite IDE workspace (Claude, Antigravity, Cursor, etc.) to initialize the workflow framework:
 
 ```markdown
-I have just installed or updated the Konductor framework for this repository. Please review @KONDUCTOR.md and the latest core files. Reorganize any unstructured project documentation into docs/ and .konductor/memory/KONDUCTOR_MEMORY.md, update the scaffolding in docs/PROJECT_SKILLS_WORKFLOW.md to match our specific tasks, and give me a brief summary of our current status and tech debt so we can safely resume work.
+I have just installed or updated the Konductor framework for this repository. Please review @KONDUCTOR.md and the latest core files. Reorganize any unstructured project documentation into docs/ and .konductor/memory/KONDUCTOR_MEMORY.md, update the scaffolding in docs/PROJECT_SKILLS_WORKFLOW.md to match our specific tasks and repo-local commands, and give me a brief summary of our current status and tech debt so we can safely resume work.
 ```
 
 Let it run for a few minutes with your Best thinking model (GPT 5.4 / Opus 4.6 / Claude 4.5 Sonnet / Gemini 3.1 Pro / GLM 5.1 etc) for best accuracy. This will align your project documentation with the Konductor workflow framework, and set up the AI agents to work with the framework. After this, the Konductor persona will be embedded in your project, and you can use it to manage your AI agents.
 
-Konductor now ships an explicit behavior layer too: `KONDUCTOR.md` holds the compact rules, `.konductor/KONDUCTOR_WORKFLOW.md` carries the machine contract (reference loop, behavior defaults, communication policy) as structured XML and the full human guide as Markdown below it, and `.konductor/memory/AGENT_BEHAVIOR.md` gives compact anti-pattern examples for day-to-day coding work.
+Konductor now ships an explicit behavior layer too: `KONDUCTOR.md` holds the compact rules, `SKILL.md` is the repo source for the universal agent skill, `.agents/skills/konductor-workflow/SKILL.md` is the installed runtime copy, `.konductor/KONDUCTOR_WORKFLOW.md` carries the machine contract (reference loop, behavior defaults, communication policy) as structured XML and the full human guide as Markdown below it, and `.konductor/memory/AGENT_BEHAVIOR.md` gives compact anti-pattern examples for day-to-day coding work.
 
 #### Example workflows
 
@@ -77,12 +79,16 @@ Konductor has been extensively tested with and is fully compatible (now and in t
 
 ## Documentation Layout
 
-- Keep `README.md` and `KONDUCTOR.md` at the repository root.
+- Keep `README.md`, `KONDUCTOR.md`, and `SKILL.md` at the repository root.
+- Keep the universal skill source in `SKILL.md`.
+- The installed runtime skill lives at `.agents/skills/konductor-workflow/`.
 - Place all other project documentation under `docs/`.
 - Use `docs/CHECK_IN.md` as the single live coordination file.
 - Use `.konductor/memory/AGENT_BEHAVIOR.md` as the compact examples file for coding anti-patterns and preferred responses.
 - Treat `docs/CHECK_IN.md` as short-term memory, `.konductor/memory/KONDUCTOR_MEMORY.md` as long-term memory, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` as the ADR ledger.
 - Keep `KONDUCTOR.md`, `KONDUCTOR_WORKFLOW.md`, `KONDUCTOR_VISION_ROADMAP.md`, and `docs/CHECK_IN.md` compact and agent-oriented.
+- Keep `SKILL.md` aligned with the repo workflows and installed skill copy.
+- Repo-specific slash-command examples live in `docs/PROJECT_SKILLS_WORKFLOW.md`: `/k-init`, `/k-update`, `/k-history`, `/k-compact`, and `/k-checkin` cover first-time review, framework refresh, memory/history inspection, context compaction, and live status check-ins.
 
 ## Prompting with `@KONDUCTOR`
 
@@ -153,7 +159,7 @@ Konductor solves the memory and attention loss problem by acting as a Markdown-f
 
 As highlighted by the widespread [Claude Code leak implications in April 2026](https://www.google.com/search?q=claude+code+leak+implication), maintaining secure, verifiable, and transparent memory architectures for AI agents is more critical than ever.
 
-We won't bury the workflow in extra tooling. The agent contract files use structured XML for reliable machine parsing: `KONDUCTOR.md` for the compact agent contract, and `KONDUCTOR_WORKFLOW.md` for the operating machine contract (reference loop, behavior defaults, communication policy). All memory, coordination, and history files remain plain Markdown: `docs/CHECK_IN.md` for short-term working state, `.konductor/memory/AGENT_BEHAVIOR.md` for compact coding-behavior examples, `.konductor/memory/KONDUCTOR_MEMORY.md` for long-term memory, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md` for the WHY, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` for critical architectural decisions in embedded ADR format. The main usage guide for operating the framework is [KONDUCTOR_WORKFLOW.md](blueprints/KONDUCTOR_WORKFLOW.md).
+We won't bury the workflow in extra tooling. The agent contract files use structured XML for reliable machine parsing: `KONDUCTOR.md` for the compact agent contract, `SKILL.md` for the universal skill source, `.agents/skills/konductor-workflow/SKILL.md` for the installed runtime copy, and `KONDUCTOR_WORKFLOW.md` for the operating machine contract (reference loop, behavior defaults, communication policy). All memory, coordination, and history files remain plain Markdown: `docs/CHECK_IN.md` for short-term working state, `.konductor/memory/AGENT_BEHAVIOR.md` for compact coding-behavior examples, `.konductor/memory/KONDUCTOR_MEMORY.md` for long-term memory, `.konductor/memory/KONDUCTOR_VISION_ROADMAP.md` for the WHY, and `.konductor/memory/KONDUCTOR_ADR_HISTORY.md` for critical architectural decisions in embedded ADR format. The main usage guide for operating the framework is [KONDUCTOR_WORKFLOW.md](blueprints/KONDUCTOR_WORKFLOW.md).
 
 - **Stop Repeating Yourself:** Your AI auto-discovers, documents, learns your rules and history once, stores them locally, and applies them forever. It evolves over time too.
 - **Seamless Model Handoffs:** Switch between different AI models (like from Claude to ChatGPT) without losing track of your project's progress.

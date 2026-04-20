@@ -10,6 +10,7 @@ done
 SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 PACKAGE_ROOT="$(dirname "$(dirname "$SCRIPT_DIR")")"
 TARGET_DIR="${TARGET_DIR:-$PWD}"
+SKILL_DIR="${SKILL_DIR:-$TARGET_DIR/.agents/skills/konductor-workflow}"
 FORCE=0
 
 read_framework_version() {
@@ -99,13 +100,14 @@ mkdir -p "$TARGET_DIR"
 
 should_replace_on_upgrade() {
   local rel_dest="$1"
-  [[ "$rel_dest" == "KONDUCTOR.md" || "$rel_dest" == ".konductor/KONDUCTOR_WORKFLOW.md" || "$rel_dest" == "docs/KONDUCTOR_GUIDE.md" ]]
+  [[ "$rel_dest" == "KONDUCTOR.md" || "$rel_dest" == "SKILL.md" || "$rel_dest" == ".konductor/KONDUCTOR_WORKFLOW.md" || "$rel_dest" == "docs/KONDUCTOR_GUIDE.md" ]]
 }
 
 copy_file() {
   local src_path="$1"
   local rel_dest="$2"
-  local dest_path="$TARGET_DIR/$rel_dest"
+  local dest_root="${3:-$TARGET_DIR}"
+  local dest_path="$dest_root/$rel_dest"
   local src_full_path="$PACKAGE_ROOT/$src_path"
   local dest_dir
 
@@ -135,16 +137,17 @@ for mapping in "${FILE_MAPPINGS[@]}"; do
   dest_path="${mapping#*:}"
   copy_file "$src_path" "$dest_path"
 done
+copy_file "SKILL.md" "SKILL.md" "$SKILL_DIR"
 
 echo
 echo "Konductor files installed successfully into: $TARGET_DIR"
 echo "(Note: Core rules in KONDUCTOR.md, KONDUCTOR_WORKFLOW.md, and KONDUCTOR_GUIDE.md are overwritten on upgrade.)"
+echo "Universal skill installed into: $SKILL_DIR"
 echo 
 echo "To initialize or update your project, copy & paste this prompt into your AI assistant:"
 echo "----------------------------------------------------------------------------------------"
 echo "I have just installed or updated the Konductor framework for this repository. Please review @KONDUCTOR.md and the latest core files. Reorganize any unstructured project documentation into docs/ and .konductor/memory/KONDUCTOR_MEMORY.md, update the scaffolding in docs/PROJECT_SKILLS_WORKFLOW.md to match our specific tasks, and give me a brief summary of our current status and tech debt so we can safely resume work."
 echo "----------------------------------------------------------------------------------------"
 echo
-echo "Installed framework version: $FRAMEWORK_VERSION (embedded in KONDUCTOR.md)"
+echo "Installed framework version: $FRAMEWORK_VERSION (embedded in KONDUCTOR.md and the installed skill files)"
 echo "Follow updates at alphabits.team/news"
-

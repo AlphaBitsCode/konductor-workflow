@@ -29,7 +29,8 @@
     "blueprints/memory/KONDUCTOR_ADR_HISTORY.md",
     "blueprints/memory/KONDUCTOR_MEMORY.md",
     "blueprints/memory/KONDUCTOR_VISION_ROADMAP.md",
-    "blueprints/scripts/meet-konductor.sh"
+    "blueprints/scripts/meet-konductor.sh",
+    "SKILL.md"
   ],
   "engines": {
     "node": ">=18.0.0"
